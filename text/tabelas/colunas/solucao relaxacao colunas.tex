@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{geometry}
+  \geometry{letterpaper,left=0.5cm,right=1cm,top=2.0cm,bottom=1.5cm}
+
+\sloppy
+
+\begin{document}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{4-13}
+\multicolumn{3}{c}{} & \multicolumn{2}{|c}{$k=1$} & \multicolumn{2}{|c|}{$k=2$} & \multicolumn{2}{c|}{$k=3$} & \multicolumn{2}{c|}{$k=4$} & \multicolumn{2}{|c|}{$k=|V|$} & \multicolumn{1}{c}{}\\
+\cline{2-14}
+\multicolumn{1}{c}{} & \multicolumn{1}{|c}{capac.} & \multicolumn{1}{|c|}{$|V|$} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{heur.} \\
+\hline
+\multirow{10}{*}{c101}
+& \multirow{5}{*}{200} & 20 & 169.22 & 0.02 & 178.28 & 0.02 & 179.87 & 0.47 & 180.28 & 5.11 & 184.84 & 1.06 & 242.19\\
+\cline{3-14}
+& \multirow{5}{*}{} & 40 & 384.79 & 3.71 & 398.60 & 3.55 & 402.47 & 8.09 & 405.29 & 60.12 & 415.41 & 13041 & 435.64\\
+\cline{3-14}
+& \multirow{5}{*}{} & 60 & 456.05 & 10.7 & 469.95 & 14.08 & 475.01 & 53.53 & 477.38 & 383.96 & - & - & 574.17\\
+\cline{3-14}
+& \multirow{5}{*}{} & 80 & 632.76 & 24.07 & 650.86 & 39.93 & 656.83 & 145.14 & 659.26 & 1110.7 & - & - & 830.02\\
+\cline{3-14}
+& \multirow{5}{*}{} & 100 & 743.85 & 66.20 & 759.11 & 123.31 & 765.01 & 558.2 & 767.87 & 948.24 & - & - &  \\ 
+\cline{2-14}
+& \multirow{5}{*}{100} & 20 & 291.93 & 0.04 & 303.29 & 0.04 & 303.31 & 0.05 & 304.45 & 0.35 & 304.97 & 0.05 & 360.37\\ 
+\cline{3-14}
+& \multirow{5}{*}{} & 40 & 590.40 & 5.52 & 604.55 & 5.67 & 607.15 & 5.84 & 608.67 & 8.42 & 610.95 & 6.47 & 645.79\\ 
+\cline{3-14}
+& \multirow{5}{*}{} & 60 & 762.19 & 23.72 & 778.37 & 16.8 & 779.40 & 16.91 & 783.44 & 49.89 & - & - & 820.52\\
+\cline{3-14}
+& \multirow{5}{*}{} & 80 & 1071.1 & 70.44 & 1087.9 & 58.87 & 1089.53 & 59.57 & 1093.23 & 101.04 & - & - & 1171.14 \\
+\cline{3-14}
+& \multirow{5}{*}{} & 100 & 1247.62 & 151.50 & 1260.68 & 113.6 & 1262.3 & 137.95 & 1266.1 & 444.51 & - & - & - \\
+\hline
+\end{tabular}
+\caption{Inst�ncia \emph{Clustered} (Solomon)}
+\label{tab:different-dynamic-approaches}
+\end{table}
+
+\vspace{1cm}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{4-13}
+\multicolumn{3}{c}{} & \multicolumn{2}{|c}{$k=1$} & \multicolumn{2}{|c|}{$k=2$} & \multicolumn{2}{c|}{$k=3$} & \multicolumn{2}{c|}{$k=4$} & \multicolumn{2}{|c|}{$k=|V|$} & \multicolumn{1}{c}{}\\
+\cline{2-14}
+\multicolumn{1}{c}{} & \multicolumn{1}{|c}{capac.} & \multicolumn{1}{|c|}{$|V|$} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{heur.} \\
+\hline
+\multirow{10}{*}{r101}
+& \multirow{5}{*}{200} & 20 & 211.96 & 0.04 & 253.64 & 0.05 & 255.02 & 3.67 & 264.44 & 52.59 & 268.31 & 0.02 & 268.31\\
+\cline{3-14}
+& \multirow{5}{*}{} & 40 & 416.88 & 2.16 & 436.75 & 3.42 & 438.08 & 26.11 & 445.20 & 105.07 & - & - & 532.60\\
+\cline{3-14}
+& \multirow{5}{*}{} & 60 & 523.16 & 11.0 & 539.54 & 10.55 & 544.07 & 164.47 & 545.89 & 787.24 & - & - & 752.44\\
+\cline{3-14}
+& \multirow{5}{*}{} & 80 & 648.35 & 35.42 & 670.48 & 38.10 & 673.84 & 132.19 & 675.03 & 170.10 & - & - & 820.31 \\
+\cline{3-14}
+& \multirow{5}{*}{} & 100 & 775.39 & 51.46 & 800.75 & 54.55 & 802.76 & 22.31 & 804.85 & 18.02 & - & - & - \\
+\cline{2-14}
+& \multirow{5}{*}{100} & 20 & 243.27 & 0.02 & 280.54 & 0.02 & 284.46 & 0.21 & 288.26 & 1.51 & 288.40 & 0.02 & 315.68\\
+\cline{3-14}
+& \multirow{5}{*}{} & 40 & 523.33 & 6.94 & 544.50 & 6.32 & 550.91 & 7.27 & 553.22 & 18.80 & 553.90 & 4.98 & 646.12\\
+\cline{3-14}
+& \multirow{5}{*}{} & 60 & 720.68 & 25.65 & 734.63 & 22.25 & 740.92 & 27.84 & 742.94 & 125.05 & - & - & 827.93 \\ 
+\cline{3-14}
+& \multirow{5}{*}{} & 80 & 932.93 & 74.94 & 954.77 & 58.60 & 958.72 & 124.22 & 960.57 & 461.82 & - & - & 1108.17 \\ 
+\cline{3-14}
+& \multirow{5}{*}{} & 100 & 1112.14 & 169.64 & 1139.73 & 156.04 & 1145.7 & 799.61 & 1146.8 & 1457.1 & - & - & -\\ 
+\hline
+\end{tabular}
+\caption{Inst�ncia \emph{Random} (Solomon)}
+\label{tab:different-dynamic-approaches}
+\end{table}
+
+\vspace{1cm}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{4-13}
+\multicolumn{3}{c}{} & \multicolumn{2}{|c}{$k=1$} & \multicolumn{2}{|c|}{$k=2$} & \multicolumn{2}{c|}{$k=3$} & \multicolumn{2}{c|}{$k=4$} & \multicolumn{2}{|c|}{$k=|V|$} & \multicolumn{1}{c}{}\\
+\cline{2-14}
+\multicolumn{1}{c}{} & \multicolumn{1}{|c}{capac.} & \multicolumn{1}{|c|}{$|V|$} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{raiz} & \multicolumn{1}{|c|}{tempo} & \multicolumn{1}{|c|}{heur.} \\
+\hline
+\multirow{10}{*}{rc101}
+& \multirow{5}{*}{200} & 20 & 254.86 & 0.02 & 285.94 & 0.05 & 294.83 & 2.58 & 301.66 & 33.05 & 306.98 & 0.04 & 341.12\\
+\cline{3-14}
+& \multirow{5}{*}{} & 40 & 445.73 & 1.90 & 477.86 & 1.96 & 492.02 & 20.68 & 498.69 & 91.26 & 508.42 & 414.88 & 583.23\\
+\cline{3-14}
+& \multirow{5}{*}{} & 60 & 635.32 & 7.71 & 670.35 & 9.00 & 681.04 & 113.10 & 689.70 & 589.78 & - & - & 939.16\\
+\cline{3-14}
+& \multirow{5}{*}{} & 80 & 816.68 & 55.11 & 840.56 & 62.33 & 854.94 & 296.54 & 858.12 & 1914.2 & - & - & 1023.4 \\
+\cline{3-14}
+& \multirow{5}{*}{} & 100 & 945.41 & 82.21 & 977.60 & 95.82 & 987.0 & 1767.9 & 991.46 & 1735,6 & - & - & - \\
+\cline{2-14}
+& \multirow{5}{*}{100} & 20 & 343.87 & 0.03 & 363.18 & 0.03 & 370.82 & 0.16 & 383.68 & 1.14 & 385.97 & 0.4 & 436.93\\
+\cline{3-14}
+& \multirow{5}{*}{} & 40 & 644.05 & 3.65 & 673.36 & 2.88 & 682.61 & 4.05 & 687.05 & 17.76 & 691.48 & 2.62 & 799.97\\
+\cline{3-14}
+& \multirow{5}{*}{} & 60 & 983.80 & 21.40 & 1023.4 & 17.28 & 1034.9 & 23.20 & 1044.25 & 96.01 & - & - & 1383.1\\
+\cline{3-14}
+& \multirow{5}{*}{} & 80 & 1289.3 & 82.22 & 1314.4 & 79.58 & 1322.7 & 93.43 & 1326.4 & 320.81 & - & - & 1489.7\\ 
+\cline{3-14}
+& \multirow{5}{*}{} & 100 & 1528.2 & 240.57 & 1556.0 & 232.13 & 1567.0 & 417.62 & 1570.6 & 968.34 & - & - & -\\
+\hline
+\end{tabular}
+\caption{Inst�ncia \emph{Clustered and Random} (Solomon)}
+\label{tab:different-dynamic-approaches}
+\end{table}
+
+
+\end{document} 

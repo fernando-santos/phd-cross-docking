@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=1.5cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\textbf{Caminho elementar com Coleta e Entrega}\\
+\end{center}
+\vspace{0.4cm}
+
+\noindent $D=(\{0,\dots,2n+1\},A)$, $F = \{1,2,\dots,n\}, C = \{n+1,n+2,\dots,2n\}$, $0$ e $2n+1$: dep\'ositos\\
+$A = \{(0,j), \, \forall j \in F\} \, \cup \, \{(i,2n+1), \, \forall i \in C\} \, \cup \, \{(i,j), \, \forall i \in F, j \in F \cup C\} \, \cup \, \{(i,j), \, \forall i,j \in C\}$.
+
+\vspace{1cm}
+Vari\'aveis de decis\~ao:
+\begin{table}[!htb]
+\centering
+\begin{tabular}{rl}
+$x_{ij} = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O arco } (i,j) \in A \textrm{ \'e ativado no caminho de } 0 \textrm{ a } 2n+1 \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$ \\
+$y_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O vertice } i \in F \cup C \textrm{ \'e ativado no caminho} \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\vspace{1cm}
+Modelo:
+\begin{center}
+ $\min \,\, \sum\limits_{(i,j) \in A} {c_{ij} x_{ij}}$
+\end{center}
+
+\begin{eqnarray}
+\label{eq01}
+  \sum\limits_{j \in F} {x_{0j}} = 1 \\
+\label{eq02}
+  \sum\limits_{i \in C} {x_{i2n+1}} = 1 \\
+\label{eq03}
+  \sum\limits_{j \in \Gamma^+_i} {x_{ij}} = -y_i & \hspace{1cm} & \forall \, i \in F \cup C\\
+\label{eq04}
+  \sum\limits_{h \in \Gamma^-_i} {x_{hi}} = -y_i & \hspace{1cm} & \forall \, i \in F \cup C\\
+\label{eq05}
+  \sum\limits_{i \in W, \, j \in V-W}{x_{ij}} \ge y_j  & \hspace{1cm} & \forall \, 0 \in W \subset V, \, \forall j \in V-W \\
+\label{eq06}
+  y_i - y_{n+i} = 0 & \hspace{1cm} & \forall \, i \in F \\
+\label{eq07}
+  \sum\limits_{i \in F} {y_i q_i} \le Q 
+\end{eqnarray}
+
+\end{document}

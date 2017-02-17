@@ -1,0 +1,31 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{geometry}
+  \geometry{letterpaper,left=0.5cm,right=1cm,top=2.0cm,bottom=1.5cm}
+\sloppy
+
+\begin{document}
+
+
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{3-12}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{2}{|c|}{Lasdon RL BC} & \multicolumn{2}{c|}{Lasdon OPT BC} & \multicolumn{2}{c|}{RLMR (sem lasdon)} & \multicolumn{2}{c|}{CPLEX - 1 thread} & \multicolumn{2}{c|}{CPLEX 4 threads} \\
+\hline
+instancia & \'Otimo & raiz (LB) & raiz ($t$) & $1^o$ arco & info dual & $1^o$ arco & info dual & $1^o$ arco & info dual \\
+\hline
+MW20a & \\ 
+MW20b & \\
+MW20c & \\
+MW20d & \\
+MW20e & \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}

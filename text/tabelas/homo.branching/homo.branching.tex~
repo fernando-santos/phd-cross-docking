@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{geometry}
+  \geometry{letterpaper,left=0.5cm,right=1cm,top=2.0cm,bottom=1.5cm}
+\sloppy
+
+\begin{document}
+
+
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\cline{5-10}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{2}{|c|}{N\'os abertos} & \multicolumn{2}{c|}{Bound BP} & \multicolumn{2}{c|}{Tempo medio n\'os} \\
+\hline
+instancia & \'Otimo & raiz (LB) & raiz ($t$) & $1^o$ arco & info dual & $1^o$ arco & info dual & $1^o$ arco & info dual \\
+\hline
+\multirow{2}{*}{MW20a} & \multirow{2}{*}{3178.95} & \multirow{2}{*}{3170.51 (0.26\%)}
+& 219s & 236 & 206 & 3174.48 & 3176.01 & 90.2s & 103.3s \\ 
+& & & 231s & 234 & 214 & 3175.11 & 3175.04 & 91.1s & 99.3s \\
+\hline
+\hline
+\multirow{2}{*}{MW20c} & \multirow{2}{*}{3766.13} & \multirow{2}{*}{3724.37 (1.10\%)}
+& 144s & 156 & 154 & 3728.62 & 3735.85 & 137.3s & 139.2s \\
+&  &  & 162s & 163 & 126 & 3733.15 & 3729.11 & 131.1s & 170.1s \\
+\hline
+\hline
+\multirow{2}{*}{MW20d} & \multirow{2}{*}{3124.25} & \multirow{2}{*}{3105.55 (0.59\%)}
+& 150s & 205 & 197 & 3115.58 & 3117.60 & 104.0s & 108.5s \\
+&  &  & 105s & 200 & 205 & 3115.08 & 3114.03 & 107.0s & 104.4s \\
+\hline
+\hline
+\multirow{2}{*}{SL20c} & \multirow{2}{*}{950.0} & \multirow{2}{*}{947.0 (0.31\%)}
+& 52s & 55 & 213 & - & - & 49.5s & 61.0s \\
+&  &  & 56s & 43 & 109 & - & - & 48.8s & 61.9s \\
+\hline
+\hline
+\multirow{2}{*}{SL20r} & \multirow{2}{*}{991.61} & \multirow{2}{*}{991.33 (0.02\%)}
+& 55s & 15 & 13 & - & - & 30.6s & 38.5s \\
+&  &  & 39s & 13 & 7 & - & - & 23.3s & 30.4 \\
+\hline
+\hline
+\multirow{2}{*}{SL20rc} & \multirow{2}{*}{1140.25} & \multirow{2}{*}{1134.91 (0.46\%)}
+& 123s & 325 & 290 & 1140.10 & 1139.72 & 35.9s & 73.9 \\
+&  &  & 102s & 155 & 131 & 1137.40 & 1137.81 & 63.6s & 75.2s \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}

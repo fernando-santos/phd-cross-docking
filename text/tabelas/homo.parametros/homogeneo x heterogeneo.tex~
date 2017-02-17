@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{geometry}
+  \geometry{letterpaper,left=0.5cm,right=1cm,top=2.0cm,bottom=1.5cm}
+
+\sloppy
+
+\begin{document}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c||c|c|c|}
+\cline{3-8}
+\multicolumn{2}{c}{} & \multicolumn{3}{|c||}{Homog\^eneo} & \multicolumn{3}{c|}{Heterog\^eneo} \\
+\hline
+instancia & \'otimo & LB & UB & GAP & LB & UB & GAP \\
+\hline
+10a & \textbf{1783.14} & 1783.14 & 1783.14 & 0.00\% & 1678.04 & 1918.50 & 12.53\% \\
+10b & \textbf{1741.46} & 1739.09 & 1741.46 & 0.14\% & 1637.16 & 1881.51 & 12.99\% \\
+10c & \textbf{1978.69} & 1978.69 & 1978.69 & 0.00\% & 1888.17 & 2160.35 & 12.59\% \\
+10d & \textbf{1770.29} & 1766.82 & 1770.29 & 0.20\% & 1677.43 & 1936.34 & 13.37\% \\
+10e & \textbf{2192.35} & 2192.35 & 2192.35 & 0.00\% & 2079.01 & 2330.43 & 10.79\% \\
+\hline \hline
+20a & \textbf{   -   } & 3465.12 & 3041.64 & 1.04\% & 2989.36 & 3538.63 & 15.52\% \\
+20b & \textbf{3397.89} & 3397.89 & 3397.89 & 0.00\% & 3185.54 & 3706.38 & 14.05\% \\
+20c & \textbf{   -   } & 3724.37 & 3813.41 & 2.32\% & 3568.15 & 4035.14 & 11.57\% \\
+20d & \textbf{   -   } & 3105.55 & 3124.25 & 0.64\% & 2936.78 & 3459.14 & 15.10\% \\
+20e & \textbf{3685.14} & 3685.14 & 3685.14 & 0.00\% & 3508.51 & 3808.30 & 7.87\% \\
+\hline
+\end{tabular}
+\caption{Limites duais e heur\'istica de gera\c{c}\~ao de colunas para o n\'o raiz}
+\end{table}
+
+\end{document}

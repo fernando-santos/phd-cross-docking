@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{geometry}
+\usepackage{graphs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{amssymb}
+\geometry{letterpaper,left=1.5cm,right=1.5cm,top=1cm,bottom=1cm}
+\sloppy
+
+\begin{document}
+
+\begin{footnotesize}
+\begin{eqnarray}
+\label{C01}
+\textrm{min} \sum\limits_{r \in R} {c_r \sum\limits_{k \in K}{\lambda^k_r}} + \sum\limits_{r' \in R'} {c_{r'} \sum\limits_{k \in K}{\gamma^k_{r'}}} & + & \sum\limits_{k \in K} {\sum\limits_{i \in S} {c^k_i \tau^k_i}} \\
+\label{C02}
+  \sum\limits_{r \in R} {\lambda^k_r} = 1 &\hspace{3mm}& \forall k \in K \\
+\label{C03}
+  \sum\limits_{r' \in R'} {\gamma^k_{r'}} = 1 &\hspace{3mm}& \forall k \in K \\
+\label{C04}
+  \sum\limits_{r \in R} {a^i_r \sum\limits_{k = 1}^K{\lambda^k_r}} = 1 &\hspace{3mm}& \forall i \in S \\
+\label{C05}
+  \sum\limits_{r' \in R'} {b^{i'}_{r'} \sum\limits_{k =1}^K{\gamma^k_{r'}}} = 1 &\hspace{3mm}& \forall i' \in C \\
+\label{C06}
+ \sum\limits_{r \in R}{\lambda^k_r a^i_r} - \sum\limits_{r' \in R'}{\gamma^k_{r'} b^{i'}_{r'}} + \tau^k_i \ge 0 &\hspace{3mm}& \forall p_i \in P, \forall k \in K \\
+\label{C07}
+ -\sum\limits_{r \in R}{\lambda^k_r a^i_r} + \sum\limits_{r' \in R'}{\gamma^k_{r'} b^{i'}_{r'}} + \tau^k_i \ge 0 &\hspace{3mm}& \forall p_i \in P, \forall k \in K
+\end{eqnarray}
+\vspace{-5mm}
+\begin{center} \textbf{Regra de Branching} \end{center}
+\vspace{-5mm}
+\begin{eqnarray}
+\label{b1}
+\tau^k_i = 0; \hspace{20mm}  \sum\limits_{r \in R} {a_{ir} \lambda^k_r} = 1;  \hspace{20mm}  \sum\limits_{r' \in R'} {b_{ir} \gamma^k_{r'}} = 1;  \\
+\label{b2}
+\tau^k_i = 0; \hspace{20mm}  \sum\limits_{r \in R} {a_{ir} \lambda^k_r} = 0;  \hspace{20mm}  \sum\limits_{r' \in R'} {b_{ir} \gamma^k_{r'}} = 0;  \\
+\label{b3}
+\tau^k_i = 1; \hspace{20mm}  \sum\limits_{r \in R} {a_{ir} \lambda^k_r} = 1;  \hspace{20mm}  \sum\limits_{r' \in R'} {b_{ir} \gamma^k_{r'}} = 0;  \\ 
+\label{b4}
+\tau^k_i = 1; \hspace{20mm}  \sum\limits_{r \in R} {a_{ir} \lambda^k_r} = 0;  \hspace{20mm}  \sum\limits_{r' \in R'} {b_{ir} \gamma^k_{r'}} = 1;
+\end{eqnarray}
+\end{footnotesize}
+
+\noindent Suponha um n\'o folha qualquer da \'arvore de branching, no qual foi feita uma atribui\c{c}\~ao fact\'ivel de valores 0's e 1's a todas as vari\'aveis $\tau^k_i$. Como consequ\^encia das restri\c{c}\~oes de branching, tem-se que
+
+\begin{footnotesize}
+\begin{equation}
+\label{B01}
+\sum\limits_{r \in R} {a_{ir}\lambda^k_r} = \{1,0\} \hspace{5mm} (\sum\limits_{r' \in R'} {b_{ir}\gamma^k_{r'}} = \{0,1\}) \hspace{3mm} \forall p_i \in P,\forall k \in K 
+\end{equation}
+\end{footnotesize}
+
+\noindent Seja $k^* \in K$ um ve\'iculo qualquer da frota. De (\ref{C02}) tem-se que pelo menos uma rota associada a $k^*$ deve ser usada no roteamento dos fornecedores, enquanto que por (\ref{C04}) garante-se que cada v\'ertice $i \in S$ deve ser atendido pela frota. Assim, de (\ref{C02}), (\ref{C04}) e (\ref{B01}) tem-se que
+
+\begin{footnotesize}
+\begin{equation}
+\label{B02}
+\exists i \in S: \sum\limits_{r \in R} {a_{ir} \lambda^{k^*}_r} = 1 \textrm{ e } \sum\limits_{k \in K \setminus k^*}{\sum\limits_{r \in R} {a_{ir} \lambda^k_r} = 0}
+\end{equation}
+\end{footnotesize}
+
+\noindent Considere ent\~ao $I^* \subseteq S$ um subconjunto n\~ao vazio de fornecedores visitados pelo ve\'iculo $k^*$ ($i \in I^* \leftrightarrow \sum\limits_{r \in R} {a_{ir} \lambda^{k^*}_r} = 1$). Como por (\ref{B02}) garante-se que rotas associadas a ve\'iculos $k \in K \setminus k^*$ n\~ao visitam os vertices $i \in I^*$, apenas as rotas associadas ao ve\'iculo $k^*$ visitar\~ao tais v\'ertices. Deste modo, considere $R^*$ como o conjunto de rotas $r \in R: \lambda^{k^*}_r > 0$ e $V_r$ o conjunto de v\'ertices visitados por uma rota $r \in R^*$. Sejam $R^*_i, R^*_j \subseteq R^*$ conjuntos de rotas que visitam dois v\'ertices quaisquer $i, j \in I^*$. Para satisfazer (\ref{C04}), tem-se que $\sum\limits_{r \in R^*_i}{\lambda^{k^*}_r} = 1$ e $\sum\limits_{r \in R^*_j}{\lambda^{k^*}_r} = 1$. Para satisfazer (\ref{C02}), tem-se que $R^*_i = R^*_j$, pois caso contr\'ario, $\sum\limits_{r \in R^*} {\lambda^{k^*}_r} > 1$, o que assegura que $V_r = I^*, \, \forall r \in R^*$. Devido \`a fun\c{c}\~ao objetivo (\ref{C01}), caso $|R^*| > 1$ os custos de todas as rotas em $R^*$ devem ser iguais ao valor da rota de custo m\'inimo para atender a todos os v\'ertices de $I^*$. Neste caso, \'e poss\'ivel manter apenas uma destas rotas com valor $\lambda^{k^*}_r = 1$, assegurando a integralidade da solu\c{c}\~ao para as rotas associadas ao ve\'iculo $k^*$. O mesmo racioc\'inio pode ser usado para deduzir a integralidade das vari\'aveis associadas aos demais ve\'iculos $K \setminus k^*$, bem como as vari\'aveis associadas \`as rotas dos consumidores, associadas as vari\'aveis $\gamma^k_{i'}$.
+
+
+\end{document}

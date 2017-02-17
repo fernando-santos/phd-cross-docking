@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=1.5cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\textbf{Caminho elementar para a formulacao homogenea usando fluxo em rede} \\
+\end{center}
+\vspace{0.4cm}
+
+\vspace{1cm}
+Vari\'aveis de decis\~ao:
+\begin{table}[!htb]
+\centering
+\begin{tabular}{rl}
+$f_{ij} = $ & Fluxo no arco $(i,j)$ correspondente a commodity $q$ \\
+$x_{ij} = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O arco } (i,j) \textrm{ \'e usado para fluir commodities na rede}  \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$ \\
+$y_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O vertice } i \textrm{ \'e ativado no fluxo}  \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$ \\
+$t_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O vertice } i' \textrm{ da requisicao } p_i \textrm{ \'e visitado, mas o vertice } i \textrm{ nao \'e}  \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\vspace{1cm}
+Modelo:
+\begin{center}
+ $Min \,\, \sum\limits_{(i,j) \in A} {c_{ij} x_{ij}} + \sum\limits_{p_i \in P}{c_i t_i}$
+\end{center}
+
+\begin{eqnarray}
+\label{eq01}
+  \sum\limits_{j \in V} {f_{0j}} = \sum\limits_{i \in V}{y_i} \\
+\label{eq02}
+  \sum\limits_{j \in \Gamma^+_i} {f^q_{ij}} - \sum\limits_{h \in \Gamma^-_i}{f^q_{hi}} = -y_i & \hspace{1cm} &\forall i \in V \cup 0'\\
+\label{eq03}
+ x_{ij} \le f_{ij} \le |V| x_{ij} & \hspace{1cm} & \forall (i,j) \in A \\
+\label{eq04}
+  \sum\limits_{j \in \Gamma^+_i}{x_{ij}} + \sum\limits_{h \in \Gamma^-_i}{x_{hi}} = 2y_i & \hspace{1cm} & \forall i \in V \\
+\label{eq05}
+  \sum\limits_{i \in S} {y_i q_i} \le Q \\
+\label{eq06}
+  \sum\limits_{i' \in C} {y_{i'} q_{i'}} \le Q \\
+\label{eq07}
+  t_i + y_i \ge y_{i'} & \hspace{1cm} & \forall p_i \in P
+\end{eqnarray}
+
+\end{document}

@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.0cm,bottom=1.0cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\noindent Considere uma rede de distribuicao composta por $V$ vertices, sendo $V = F \cup C \cup \{0\}$ onde $F=\{1,2,..,N\}$  o conjunto de fornecedores e $C=\{1',2',..,N'\}$ representam os consumidores do problema. E definido tambem um conjunto $Q = \{q_0, q_1, ..., q_n\}$ de \textit{commodities} a serem transportadas, sendo que uma \textit{commodity} esta associada unicamente a um fornecedor e a um consumidor e $p_q$  o `peso' desta \textit{commodity}. O vertice $0 \in V$ representa o Cross-Docking. O conjunto de arestas que conectam os elementos de $V$  denotado por $A = \{(i,j)\}: i,j \in V$. Para cada arco $(i,j)$ define-se como $c_{ij}$ o custo para atravessa-lo.\\
+
+\noindent Para a distribuicao das \textit{commodities} tem-se disponivel uma frota homogenea de veiculos $K=\{1,2,..,|K|\}$ cuja capacidade de carga e $C$. O problema de otimizacao consiste em definir o esquema de alocacao e roteamento dos veiculos para realizar com o minimo custo a distribuicao das \textit{commodities}, sendo que todas devem ser coletadas nos fornecedores e passar pelo \emph{Cross-Docking} antes de serem entregues aos respectivos consumidores. No \emph{Cross-Docking} e possivel trocar as commodities de veiculos.\\
+
+\noindent Sejam $R$ e $R'$ os conjuntos de todas as possiveis rotas para atender os fornecedores e consumidores, respectivamente. Cada rota $r \in R$ e $r' \in R'$ i composta de vertices que sao visitados (mas nao a ordem de visita). Os custos $c_r$ e $c_{r'}$ denotam a distancia percorrida por cada rota. Alem disto, sao definidos custos $c^k_q$ para movimentar a \textit{commodity} $q$ do veiculo $k$ no cross-docking.\\
+
+\noindent O vetor coluna $A_r$ denota quais \textit{commodities} sao coletadas pela rota $r$, sendo que se a \textit{commodity} $q$ e coletada pela rota $r$, tem-se $A_{qr} = 1$, caso contrario $A_{qr} = 0$. De maneira semelhante e definido o vetor $B_{r'}$ que define as rotas que entregam as \textit{commodities} aos consumidores. Sao apresentadas as variveis de decisao: \\
+
+\begin{table}[!htb]
+\begin{tabular}{rl}
+\vspace{1mm}
+$\lambda^k_r = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } r \textrm{ sera associada ao veculo } k \textrm{ no roteamento dos \underline{fornecedores}} \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+\vspace{2mm}
+$\gamma^k_{r'} = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } r \textrm{ sera associada ao veculo } k \textrm{ no roteamento dos \underline{consumidores}} \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+\vspace{1mm}
+$\tau^k_q = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O veiculo } k \textrm{ carrega/descarrega a commodity } q \textrm{ no Cross-Docking}\\
+0 - \textrm{ Caso contrario } 
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\noindent As equacoes (1) e (2) asseguram que um veiculo esteja vinculado a exatamente uma rota, tanto na coleta das \textit{commodities}, quanto na entrega. De (3) e (4) tem-se que o v�rtice que oferece uma \textit{commodity} $q$ deve ser visitado por pelo menos uma rota $r$ ($r'$ para os consumidores). Em problemas onde a desigualdade triangular � satisfeita (como � o caso das nossas inst�ncias), um v�rtice ser� visitado por exatamente um ve�culo. As inequa��es (5) e (6) tem a finalidade de verificar a carga/descarga das mercadorias no Cross-Docking, sendo que se um mesmo veiculo coletar uma mercadoria e n�o entreg�-la, ou do lado oposto, n�o houver coletado uma mercadoria e entreg�-la, implica que esta mercadoria foi trocada de veiculos no Cross-Docking e o custo associado a esta troca deve ser computado na funcao objetivo, que tamb�m � composta pelos custos das rotas escolhidas para atender fornecedores e consumidores.\\
+
+\newpage
+\noindent Uma formulacao linear inteira para este problema e dada pelo modelo abaixo:
+
+\[
+Min \,\, \sum\limits_{r \in R} {c_r \sum\limits_{k \in K}{\lambda^k_r}} + \sum\limits_{r' \in R'} {c_{r'} \sum\limits_{k \in K}{\gamma^k_{r'}}} + \sum\limits_{k \in K} {\sum\limits_{q \in Q} {c^k_q \tau^k_q}}
+\]
+
+\begin{eqnarray}
+\label{eqA01}
+  \sum\limits_{r \in R} {\lambda^k_r} = 1   & \hspace{1cm} & \forall k \in K \\
+\label{eqA02}
+  \sum\limits_{r' \in R'} {\gamma^k_{r'}} = 1 & \hspace{1cm} & \forall k \in K \\
+\label{eqA03}
+  \sum\limits_{r \in R} {A_{qr} \sum\limits_{k \in K}{\lambda^k_r}} = 1 & \hspace{1cm} & \forall q \in Q \\
+\label{eqA04}
+  \sum\limits_{r' \in R'} {B_{qr'} \sum\limits_{k \in K}{\gamma^k_{r'}}} = 1 & \hspace{1cm} & \forall q \in Q \\
+\label{eqA05}
+  \sum\limits_{r \in R} {\lambda^k_r A_{qr}} - \sum\limits_{r' \in R'} {\gamma^k_{r'} B_{qr'}} + \tau^k_q \ge 0 & \hspace{1cm} & \forall q \in Q, \forall k \in K \\
+\label{eqA06}
+  -\sum\limits_{r \in R} {\lambda^k_r A_{qr}} + \sum\limits_{r' \in R'} {\gamma^k_{r'} B_{qr'}} + \tau^k_q \ge 0 & \hspace{1cm} & \forall q \in Q, \forall k \in K \\
+\label{eqA07}
+  \lambda^k_r, \gamma^k_{r'}, \tau^k_q \in \{0,1\} 
+\end{eqnarray}
+
+\vspace{2.5cm}
+\noindent A seguir, as restricoes de integralidade sao relaxadas e sao definidos os conjuntos $S \subseteq R$ e $S' \subseteq R'$. Assim, obtem-se o problema master restrito:
+
+\[
+Min \,\, \sum\limits_{r \in S} {c_r \sum\limits_{k \in K}{\lambda^k_r}} + \sum\limits_{r' \in S'} {c_{r'} \sum\limits_{k \in K}{\gamma^k_{r'}}} + \sum\limits_{k \in K} {\sum\limits_{q \in Q} {c^k_q \tau^k_q}}
+\]
+
+\begin{eqnarray}
+\label{eqB01}
+  \sum\limits_{r \in S} {\lambda^k_r} = 1   & \hspace{1cm} & \forall k \in K \\
+\label{eqB02}
+  \sum\limits_{r' \in S'} {\gamma^k_{r'}} = 1 & \hspace{1cm} & \forall k \in K \\
+\label{eqB03}
+  \sum\limits_{r \in S} {A_{qr} \sum\limits_{k \in K}{\lambda^k_r}} = 1 & \hspace{1cm} & \forall q \in Q \\
+\label{eqB04}
+  \sum\limits_{r' \in S'} {B_{qr'} \sum\limits_{k \in K}{\gamma^k_{r'}}} = 1 & \hspace{1cm} & \forall q \in Q \\
+\label{eqB05}
+  \sum\limits_{r \in S} {\lambda^k_r A_{qr}} - \sum\limits_{r' \in S'} {\gamma^k_{r'} B_{qr'}} + \tau^k_q \ge 0 & \hspace{1cm} & \forall q \in Q, \forall k \in K \\
+\label{eqB06}
+  -\sum\limits_{r \in S} {\lambda^k_r A_{qr}} + \sum\limits_{r' \in S'} {\gamma^k_{r'} B_{qr'}} + \tau^k_q \ge 0 & \hspace{1cm} & \forall q \in Q, \forall k \in K \\
+\label{eqB07}
+  \lambda^k_r, \gamma^k_{r'}, \tau^k_q \ge 0
+\end{eqnarray}
+
+
+\newpage
+Associa-se entao variaveis duais as restricoes do problema primal, para obter a formulacao dual. As variaveis duais foram assim definidas:
+\begin{table}[!htb]
+\begin{center}
+\begin{tabular}{lll}
+$(1) \rightarrow \alpha \in \mathbb{R}^{|K|}$ & $(2) \rightarrow \beta \in \mathbb{R}^{|K|}$ & $(3) \rightarrow \theta \in \mathbb{R}^{|Q|}$ \\
+ & & \\
+$(4) \rightarrow \mu \in \mathbb{R}^{|Q|}$ & $(5) \rightarrow \pi \in \mathbb{R}^{|K|\times|Q|}_+$ & $(6) \rightarrow \chi \in \mathbb{R}^{|K|\times|Q|}_+$ \\
+\end{tabular}
+\end{center}
+\end{table}
+
+\noindent A formulacao dual e dada por: \vspace{5mm}
+
+\[
+Max \,\, \sum\limits_{k \in K}{\alpha^k} + \sum\limits_{k \in K}{\beta^k} + \sum\limits_{q \in Q}{\theta_q} + \sum\limits_{q \in Q}{\mu_q}
+\]
+
+\begin{small}
+\begin{eqnarray}
+\label{eqC01}
+  \alpha^k + \sum\limits_{q \in Q}{A_{qr} \theta_q} + \sum\limits_{q \in Q}{A_{qr} \pi^k_q} - \sum\limits_{q \in Q}{A_{qr} \chi^k_q} \le c_r & \hspace{5mm} & \forall r \in S, \forall k \in K \\
+\label{eqC02}
+  \beta^k + \sum\limits_{q \in Q}{B_{qr'} \mu_q} - \sum\limits_{q \in Q}{B_{qr} \pi^k_q} + \sum\limits_{q \in Q}{B_{qr} \chi^k_q} \le c_{r'} & \hspace{5mm} & \forall r' \in S', \forall k \in K \\
+\label{eqC03}  
+  \pi^k_q + \chi^k_q \le c^k_q & \hspace{5mm} & \forall k \in K, \forall q \in Q \\
+\label{eqC04}
+  \alpha^k, \beta^k, \theta_q, \mu_q \textrm{  irrestritos}  \\
+\label{eqC05}
+  \pi^k_q, \chi^k_q \ge 0
+\end{eqnarray}
+\end{small}
+
+\end{document}

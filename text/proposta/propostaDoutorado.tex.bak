@@ -1,0 +1,165 @@
+\documentclass[12pt]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=1.5cm}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{graphs}
+\usepackage[square]{natbib}
+
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\begin{Large}
+Universidade Federal de Minas Gerais\\
+Instituto de Ciências Exatas\\
+Programa de Pós-Graduação em Ciência da Computação\\
+\end{Large}
+\end{center}
+
+\vspace{5cm}
+
+\begin{center}
+ \begin{LARGE}
+  \textbf{Proposta de Projeto Orientado}\\ \vspace{4mm}
+  Aplicação de técnicas exatas de otimização para o \\problema integrado de distribuição e roteamento \vspace{4mm}
+ \end{LARGE}
+\end{center}
+
+\vspace{3cm}
+
+\begin{flushright}
+
+\begin{large}
+Proposta apresentada ao Colegiado do Curso de \\Pós-Graduação em Ciência da Computação como \\ \vspace{1mm}requisito da disciplina DCC903 Projeto Orientado IV
+\end{large}
+
+\vspace{15mm}
+
+\begin{large}
+Aluno: Fernando Afonso Santos\\
+Orientador: Alexandre Salles Cunha\\
+\end{large}
+\end{flushright}
+
+\vspace{37mm}
+
+\begin{center}
+Belo Horizonte\\
+junho de 2009
+\end{center}
+
+
+\newpage
+\section{Introdução}
+
+A distribuição de mercadorias em sistemas produtivos é um problema de grande relevância, principalmente ao considerar seu aspecto econômico. Segundo \cite{king97} os custos de distribuição de mercadorias nos Estados Unidos pode chegar a 30\% do valor de um produto. No Brasil, pesquisas indicam que serviços com transporte em sistemas produtivos representam 2,53\% do produto interno bruto (PIB) \cite{fraga07}. \vspace{2mm}
+
+Em grande parte dos sistemas produtivos, a distribuição das mercadorias envolve o seu armazenamento em centros de distribuição e a atribuição de veículos que entreguem aos consumidores suas respectivas demandas. Neste contexto, o problema de roteamento de veículos (PRV) se torna importante, para atribuir rotas entre fornecedores, centros de distribuição e consumidores que minimizem os custos de transporte. \vspace{2mm}
+
+Devido à importância econômica deste problema, alternativas vêm sendo propostas a fim de minimizar os custos e aumentar a eficiência  na distribuição das mercadorias. Dentre os avanços obtidos na última década, uma estratégia que obteve grande aceitação foi a implementação de sistemas de cross-docking para o armazenamento temporário de mercadorias. \vspace{2mm}
+
+Cross-docking é um conceito de gestão de distribuição de mercadorias no qual os itens são levados dos fornecedores até armazéns onde são imediatamente organizados e despachados de acordo com as demandas dos consumidores, sem a necessidade de realizar o inventário de tais itens no centro de distribuição. Caso haja a necessidade de permanência de itens nos armazéns, isto ocorre apenas por um curto período, normalmente menor do que 24 horas \cite{yu08}.\vspace{2mm}
+
+Nos sistemas de cross-docking é possível que as mercadorias vindas dos fornecedores passem por um processo denominado consolidação, que consiste em prepará-las e despachá-las aos consumidores conforme suas necessidades. Assim, ao utilizar esta estratégia é possível minimizar custos com estoques e tornar o processo de distribuição das mercadorias centralizado e mais organizado. A figura \ref{fig:cross-docking} é adaptada de \cite{oliveira02} e ilustra um esquema básico de funcionamento de um cross-docking.
+
+\begin{figure}[!htb]
+\centering
+  \includegraphics[scale=0.58]{cross-docking.eps}
+  \label{fig:cross-docking}
+\caption{Esquema básico de funcionamento de um cross-docking}
+\end{figure}
+
+Um fato que possibilita visualizar a importância dos sistemas de cross-docking na distribuição de mercadorias, são os trabalhos relacionados a esta estratégia disponíveis na literatura. Companhias de mercado global tais como tais como Wal Mart \cite{gue01}, UPS \cite{forger95} e Toyota \cite{witt98} são apenas algumas entre as que publicaram implementações de sucesso de cross-docking em seus sistemas de distribuição \cite{yu08}. \vspace{2mm}
+
+\newpage
+No esquema apresentado na figura 1, é possível observar três diferentes problemas. O primeiro deles é um PRV para a coleta das mercadorias nos fornecedores e levá-las até o armazém de cross-docking, depois é necessário solucionar um problema de sequenciamento (\emph{scheduling}) entre as mercadorias no cross-docking para que estas sejam carregadas nos veículos de maneira a facilitar a solução do terceiro problema, que é um PRV para a entrega das mercadorias. Solucionar estes problemas integrados procurando pelo menor custo de distribuição é um problema de elevada complexidade, cuja literatura demanda contribuições. \vspace{5mm}
+
+
+\section{Trabalhos Relacionados}
+
+Muito tem se estudado nos últimos anos sobre a estratégia de cross-docking, dada a sua importância para a distribuição de mercadorias e a sua grande difusão entre as empresas. Os trabalhos são apresentados em diferentes áreas como logística, gestão de materiais, transportes e \emph{scheduling}. Entre estes trabalhos é possível citar \cite{apte00} e \cite{bartholdi04}, que estudaram alternativas para o planejamento dos cross-docking e \cite{yu08} que soluciona o problema de \emph{scheduling} das mercadorias entre fornecedores e consumidores que passam pelo armazém. \vspace{2mm}
+
+Para melhorar a eficiência na distribuição de mercadorias em sistemas de cross-docking, uma alternativa pouco explorada na literatura mas que tem muito a contribuir é a integração entre o roteamento de veículos e o \emph{scheduling} no cross-docking. Mesmo que existam trabalhos que abordam individualmente cada um destes problemas, a integração de ambas estratégias na otimização da do uso dos cross-docking ainda é um tema pouco pesquisado. \vspace{2mm}
+
+O primeiro trabalho a abordar esta otimização integrada foi proposto por \cite{vrpcd06} em 2006. Em seu texto, o autor cita que embora a importância do cross-docking na gestão de suprimentos seja um consenso entre as empresas, estudos relacionados ao roteamento de veículos integrado ao \emph{scheduling} nos sistemas de cross-docking ainda não foram conduzidos. Neste trabalho, para que o processo de consolidação seja efetivado é necessário que todos os veículos que sairam para realizar a coleta nos fornecedores retornem ao cross-docking. \vspace{2mm}
+
+Seguindo a mesma linha proposta por \cite{vrpcd06}, o trabalho apresentado por \cite{wen08} também propõe contribuições para o PRV utilizando cross-docking, denominado de VRPCD (\emph{Vehicle Routing Problem with Cross-Docking}). No entanto, diferentes particularidades do problema são consideradas, como a existência de janelas de tempo nos fornecedores e consumidores para o atendimento e principalmente a relaxação da restrição que força a presença de todos os veículos no cross-docking para que o processo de consolidação seja iniciado. \vspace{2mm}
+
+Os trabalhos apresentador por \cite{vrpcd06} e \cite{wen08} foram grandes contribuições para o problema de distribuição de mercadorias utilizando sistemas de cross-docking, no entanto, ambos apresentam apenas soluções heurísticas para o problema. Inicialmente são apresentadas formulações matemáticas utilizando programação linear inteira, mas devido a complexidade utiliza-se algoritmos aproximados para obter as soluções. \vspace{5mm}
+
+
+\section{Motivação e Justificativa}
+
+Mesmo que as formulações matemáticas apresentadas nos trabalhos de \cite{vrpcd06} e \cite{wen08} apresentem um elevado número de variáveis e restrições e demandem um elevado tempo computacional para obter as soluções ótimas, existem diferentes técnicas de programação inteira que podem ser utilizadas. No entanto, não existem trabalhos na literatura que apliquem tais técnicas para a otimização integrada do roteamento e distribuição das mercadorias em sistemas de cross-docking. \vspace{2mm}
+
+Além disto, estes trabalhos apresentam em comum a característica que todos os veículos devem retornar ao cross-docking após coletar os produtos nos fornecedores, para realizar o prcesso de consolidação e realizar a entrega aos clientes. A figura \ref{fig:example1} ilustra um exemplo desta estratégia onde o conjunto de vértices \{1, 2, 3, 4, 5\} representa os fornecedores do sistema de cross-docking, enquanto no conjunto \{1', 2', 3', 4', 5'\} estão os consumidores.
+
+\begin{figure}[!htb]
+\centering
+  \subfigure[Caracterização dos fornecedores, consumidores e armazém do cross-docking]{
+    \includegraphics[width=.46\textwidth]{./example1a.eps}
+    \label{fig:example1a}
+  }
+  \hspace{5mm}
+  \subfigure[Solução obtida para o roteamento]{
+    \includegraphics[width=.46\textwidth]{./example1b.eps}
+    \label{fig:example1b}
+  }
+  \caption{Caracterização do problema de roteamento utilizando a estratégia de cross-docking}
+  \label{fig:example1}
+\end{figure}
+
+Em um sistema produtivo, é possível existir diferentes tipos de mercadorias, algumas que não necessitam de cuidados especiais em seu transporte e podem ter o cross-docking como intermédio entre fornecedores e clientes, enquanto outras devem ser entregues diretamente dos fornecedores aos consumidores, como é o caso de mercadorias extremamente perecíveis como frios e congelados. Assim, a restrição que força que todos os veículos devem passar pelo cross-docking deve ser relaxada quando as mercadorias exigirem entrega imediata. \vspace{2mm}
+
+Durante a disciplina DCC833 - Otimização em redes este problema começou a ser tratado através de um trabalho prático da disciplina, onde foram apresentados modelos matemáticos de programação linear inteira para a solução deste problema. No entanto, a complexidade computacional envolvida faz com que tais formulações matemáticas apresentem um elevado número de restrições e variáveis, impossibilitando sua solução para problemas reais. \vspace{2mm}
+
+Este cenário sugere que sejam aplicadas técnicas de otimização combinatória para obter a solução exata deste problema, alcançando soluções ótimas para instâncias de grande porte. Como não houve tempo suficiente para a realização deste trabalho na disciplina, gostaria de investigá-lo sob orientação do mesmo professor em um projeto orientado. As perspectivas relacionadas à solução deste problema são promissoras, devido à carência de contribuição nesta área da literatura. \vspace{2mm}
+
+
+\section{Proposta de trabalho}
+
+Conforme mencionado anteriormente o problema proposto neste projeto orientado começou a ser estudado na disciplina de Otimização em redes. Como trabalho prático desta disciplina serão desenvolvidos modelos de programação linear inteira que permitirão a solução ótima deste problema utilizando pacotes de programação matemática, no entanto, apenas para instâncias de pequeno porte. \vspace{2mm}
+
+Para obter a solução deste problema para instâncias de tamanho real será necessário aplicar técnicas de programação matemática que explorem particularidades envolvidas na formulação para alcançar as soluções ótimas em um tempo computacional menor. A implementação de tais técnicas envolve uma grande complexidade, o que justifica o pedido de um projeto orientado para a sua realização. \vspace{2mm}
+
+Existem diferentes técnicas que podem ser utilizadas, entre elas é possível citar a geração de colunas de Dantzig-Wolfe, a relaxação Lagrangeana e a decomposição de Benders. Portanto, a proposta deste trabalho é a investigação de uma destas técnicas para a solução exata do problema integrado de distribuição e roteamento de veículos apresentado. \vspace{2mm}
+
+
+\section{Etapas do trabalho e Cronograma}
+
+
+\begin{enumerate}
+ \item \textbf{Avaliação das técnicas exatas aplicáveis ao problema};
+ \item \textbf{Implementação da técnica selecionada};
+ \item \textbf{Avaliação experimental do algoritmo};
+ \item \textbf{Elaboração de relatório (em forma de artigo científico) sobre o trabalho realizado};
+\end{enumerate}
+
+\begin{table}[!htb]
+  \centering
+  \begin{small}
+  \begin{tabular}{|c|ccccc|} \hline
+    Fase & \textbf{Agosto} & \textbf{Setembro} & \textbf{Outubro} & \textbf{Novembro} & \textbf{Dezembro} \\
+
+    \hline
+    1 & \rule[0.1ex]{0.8cm}{0.5em} & & & & \\
+    2 & \rule[0.1ex]{0.8cm}{0.5em} & \rule[0.1ex]{0.8cm}{0.5em} & \rule[0.1ex]{0.8cm}{0.5em} & \rule[0.1ex]{0.8cm}{0.5em} &\\
+    3 & & & & \rule[0.1ex]{0.8cm}{0.5em} & \\
+    4 & & & & & \rule[0.1ex]{0.8cm}{0.5em} \\
+    \hline
+  \end{tabular}
+  \end{small}
+  \caption{Cronograma geral de atividades}
+\end{table}
+
+\newpage
+\bibliographystyle{siam}
+\bibliography{propostaDoutorado}
+
+\end{document}

@@ -1,0 +1,9 @@
+set xlabel 'exponential quantiles'
+set size ratio 1
+set ylabel 'measured times'
+set key right bottom
+set title 'grasp-sem-PR'
+set terminal postscript color 'Helvetica' 
+set output 'grasp-sem-PR-qq.ps'
+plot "grasp-sem-PR-el.dat" t "empirical" w points, "grasp-sem-PR-tl.dat" t "estimated" with lines 3, "grasp-sem-PR-ul.dat" t "+1 std dev range" w lines 4, "grasp-sem-PR-ll.dat" t "-1 std dev range" w lines 4 
+quit

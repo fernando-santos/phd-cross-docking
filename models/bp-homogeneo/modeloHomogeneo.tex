@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.0cm,bottom=1.0cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\begin{table}[!htb]
+\begin{tabular}{rl}
+\vspace{1mm}
+$\lambda_r = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } r \textrm{ sera usada na solu\c{c}\~ao} \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+\vspace{1mm}
+$\tau_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A mercadoria } p_i \textrm{ troca de ve\'iculo no Cross-Docking }\\
+0 - \textrm{ Caso contrario }
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\[
+\min \hspace{1cm} \sum\limits_{r \in R} {c_r \lambda_r} + \sum\limits_{p_i \in P} {c_i \tau_i}
+\]
+
+\begin{eqnarray}
+\label{eqA1}
+  \sum\limits_{r \in R} {\lambda^k_r} = K \\
+\label{eqA2}
+  \sum\limits_{r \in R} {a_{ir} \lambda_r} = 1 & \hspace{1cm} & \forall i \in V \\
+\label{eqA3}
+  \tau_i - \sum\limits_{r \in R} {b_{ir} \lambda_r} \ge 0 & \hspace{1cm} & \forall p_i \in P 
+\end{eqnarray}
+
+\vspace{3cm}
+
+Ao resolver a relaxa\c{c}\~ao linear do problema acima e associar variaveis duais as restricoes do primal, obtem-se o modelo dual:
+\begin{table}[!htb]
+\begin{center}
+\begin{tabular}{lll}
+$(1) \rightarrow \alpha \in \mathbb{R}$ & $(2) \rightarrow \theta \in \mathbb{R}^{|V|}$ & $(3) \rightarrow \chi \in \mathbb{R}_+^{|P|}$ \\
+\end{tabular}
+\end{center}
+\end{table}
+
+\[
+\max \hspace{1cm} K \alpha + \sum\limits_{i \in V}{\theta_i}
+\]
+
+\begin{small}
+\begin{eqnarray}
+\label{eqC01}
+  \alpha + \sum\limits_{i \in V}{a_{ir} \theta_i} - \sum\limits_{p_i \in P}{b_{ir} \chi_i} \le c_r & \hspace{5mm} & \forall r \in R \\
+\label{eqC02}
+  \chi_i \le c_i & \hspace{5mm} & \forall p_i \in P 
+\end{eqnarray}
+\end{small}
+
+\end{document}

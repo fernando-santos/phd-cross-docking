@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{geometry}
+  \geometry{letterpaper,left=0.5cm,right=1cm,top=2.0cm,bottom=1.5cm}
+\sloppy
+
+\begin{document}
+
+
+\begin{sidewaystable}[h]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{5-13}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{3}{|c|}{N\'os abertos} & \multicolumn{3}{c|}{Bound BP} & \multicolumn{3}{c|}{Tempo medio n\'os} \\
+\hline
+instancia & \'Otimo & raiz (LB) & raiz ($t$) & v$_0$ & v$_1$ & v$_2$ & v$_0$ & v$_1$ & v$_2$ & v$_0$ & v$_1$ & v$_2$ \\
+\hline
+\multirow{4}{*}{MW20a} & \multirow{4}{*}{3178.95} & \multirow{4}{*}{3170.51 (0.26\%)}
+& 219s & 236 & 206 & 167 & 3174.48 & 3176.01 & 3176.04 & 90.2s & 103.3s & 126.1s \\ 
+& & &  &  &  &  &  &  &  &  &  &  \\
+& & & 231s & 234 & 214 & 161 & 3175.11 & 3175.04 & 3176.55 & 91.1s & 99.3s & 136.7s \\
+& & &  &  &  &  &  &  &  &  &  &  \\
+\hline
+\hline
+\multirow{4}{*}{MW20c} & \multirow{4}{*}{3766.13} & \multirow{4}{*}{3724.37 (1.10\%)}
+& 144s & 156 & 154 & 149 & 3728.62 & 3735.85 & 3732.34 & 137.3s & 139.2s & 143.4s \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+&  &  & 162s & 163 & 126 & 146 & 3733.15 & 3729.11 & 3727.89 & 131.1s & 170.1s & 146.0s \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+\hline
+\multirow{4}{*}{MW20d} & \multirow{4}{*}{3124.25} & \multirow{4}{*}{3105.55 (0.59\%)}
+& 150s & 205 & 197 & 204 & 3115.58 & 3117.60 & 3114.74 & 104.0s & 108.5s & 104.7s \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+&  &  & 105s & 200 & 205 & 184 & 3115.08 & 3114.03 & 3115.65 & 107.0s & 104.4s & 115.7s \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+\hline
+\multirow{4}{*}{SL20c} & \multirow{4}{*}{950.0} & \multirow{4}{*}{947.0 (0.31\%)}
+& 52s & 55 & 213 & 139 & - & - & - & 49.5s & 61.0s & 62.2s \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+&  &  & 56s & 43 & 109 & 283 & - & - & - & 48.8s & 61.9s & 61.0s \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+\hline
+\multirow{4}{*}{SL20r} & \multirow{4}{*}{991.61} & \multirow{4}{*}{991.33 (0.02\%)}
+& 55s & 15 & 13 & 9 & - & - & - & 30.6s & 38.5s & 40.7s \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+&  &  & 39s & 13 & 7 & 7 & - & - & - & 23.3s & 30.4 & 23.8 \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+\hline
+\multirow{4}{*}{SL20rc} & \multirow{4}{*}{1140.25} & \multirow{4}{*}{1134.91 (0.46\%)}
+& 123s & 325 & 290 & 308 & 1140.10 & 1139.72 & 1139.18 & 35.9s & 73.9 & 69.5 \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+&  &  & 102s & 155 & 131 & 143 & 1137.40 & 1137.81 & 1137.81 & 63.6s & 75.2s & 69.7s \\
+&  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+\end{tabular}
+\end{sidewaystable}
+
+\end{document}

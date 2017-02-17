@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=1.5cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\textbf{Caminho elementar usando fluxo em rede} \\
+\end{center}
+\vspace{0.4cm}
+
+\noindent Dado um grafo $G=(V \cup \{0,0'\},A)$, onde $A = \{(0,j), \, \forall j \in V\} \, \cup \, \{(i,0'), \, \forall i \in V\} \, \cup \, \{(i,j), \, \forall i,j \in V\}$, deseja-se encontrar o caminho de m\'inimo custo que conecte $0$ a $0'$. Cada aresta $(i,j) \in A$ tem um custo $c_{ij}$ dado por sua dist\^ancia euclideana e cada v\'ertice $i \in V$ est\'a associado a uma carga $q_i$. A carga dos v\'ertices ao longo do caminho de m\'inimo custo n\~ ao deve exceder o limite $Q$.
+
+\vspace{1cm}
+Vari\'aveis de decis\~ao:
+\begin{table}[!htb]
+\centering
+\begin{tabular}{rl}
+$f_{ij} = $ & Fluxo no arco $(i,j)$ correspondente a commodity $q$ \\
+$y_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O vertice } i \textrm{ e ativado no fluxo}  \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\vspace{1cm}
+Modelo:
+\begin{center}
+ $Min \,\, \sum\limits_{(i,j) \in A} {c_{ij} x_{ij}}$
+\end{center}
+
+\begin{eqnarray}
+\label{eq01}
+  \sum\limits_{j \in V} {f_{0j}} = \sum\limits_{i \in V}{y_i} \\
+\label{eq02}
+  \sum\limits_{j \in \Gamma^+_i} {f^q_{ij}} - \sum\limits_{h \in \Gamma^-_i}{f^q_{hi}} = -y_i & \hspace{1cm} &\forall i \in V \cup 0'\\
+\label{eq03}
+ x_{ij} \le f_{ij} \le |V| x_{ij} & \hspace{1cm} & \forall (i,j) \in A \\
+\label{eq04}
+  \sum\limits_{j \in \Gamma^+_i}{x_{ij}} + \sum\limits_{h \in \Gamma^-_i}{x_{hi}} = 2y_i & \hspace{1cm} & \forall i \in V \\
+\label{eq05}
+  \sum\limits_{i \in V} {y_i q_i} \le Q
+\end{eqnarray}
+
+\end{document}

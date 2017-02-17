@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=1.5cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\textbf{Modelo VRPCD com n\'umero exponencial de restri\c{c}\~oes \\ solu\c{c}\~ao via Branch-and-cut}\\
+\end{center}
+\vspace{0.4cm}
+
+\noindent $D=(\{0,\dots,2n+1\},A)$, $F = \{1,2,\dots,n\}, C = \{n+1,n+2,\dots,2n\}$, $0$ e $2n+1$: dep\'ositos\\
+$A = \{(0,j), \, \forall j \in F\} \, \cup \, \{(i,2n+1), \, \forall i \in C\} \, \cup \, \{(i,j), \, \forall i \in F, j \in F \cup C\} \, \cup \, \{(i,j), \, \forall i,j \in C\}$.
+
+\vspace{1cm}
+Vari\'aveis de decis\~ao:
+\begin{table}[!htb]
+\centering
+\begin{tabular}{rl}
+$x^k_{ij} = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O arco } (i,j) \in A \textrm{ \'e ativado pelo ve\'iculo } k \textrm{ no caminho de } 0 \textrm{ a } 2n+1 \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$ \\
+$y^k_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O vertice } i \in F \cup C \textrm{ \'e visitado pelo ve\'iculo } k \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$ \\
+$t^k_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O ve\'iculo } k \textrm{ visita o consumidor } n+i \in C \textrm{ mas n\~ao visita o fornecedor } i \in F \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\vspace{1cm}
+Modelo:
+\begin{center}
+ $\min \,\, \sum\limits_{k = 1}^{K}{( \sum\limits_{(i,j) \in A} {c_{ij} x^k_{ij}} + \sum\limits_{i \in C}{c_i t^k_i})} $
+\end{center}
+
+\begin{eqnarray}
+\label{eq01}
+  \sum\limits_{j \in F} {x^k_{0j}} = 1 & \hspace{1cm} & \forall \, k = \{1, \dots , K\}\\
+\label{eq02}
+  \sum\limits_{i \in C} {x^k_{i2n+1}} = 1 & \hspace{1cm} & \forall \, k = \{1, \dots , K\}\\
+\label{eq03}
+  \sum\limits_{j \in \Gamma^+_i} {x^k_{ij}} = y^k_i & \hspace{1cm} & \forall \, i \in F \cup C, \,\, \forall \, k = \{1, \dots , K\}\\
+\label{eq04}
+  \sum\limits_{h \in \Gamma^-_i} {x^k_{hi}} = y^k_i & \hspace{1cm} & \forall \, i \in F \cup C, \,\, \forall \, k = \{1, \dots , K\}\\
+\label{eq05}
+  \sum\limits_{i \in W, \, j \in V-W}{x^k_{ij}} \ge y^k_j  & \hspace{1cm} & 
+  	\forall \, 0 \in W \subset V, \,\, \forall \, j \in V-W, \,\, \forall \, k = \{1, \dots , K\} \\
+\label{eq06}
+  \sum\limits_{i \in F} {y^k_i q_i} \le Q & \hspace{1cm} & \forall \, k = \{1, \dots , K\}\\
+\label{eq07}
+  \sum\limits_{n+i \in C} {y^k_{n+i} q_{n+i}} \le Q & \hspace{1cm} & \forall \, k = \{1, \dots , K\}\\
+\label{eq08}
+  t^k_i \ge y^k_i - y^k_{n+i} & \hspace{1cm} &\forall i \in F, \,\, \forall \, k = \{1, \dots , K\} \\
+\label{eq09}
+  \sum\limits_{k=1}^{K} {y^k_i} = 1 & \hspace{1cm} & \forall \, i \in F \cup C
+\end{eqnarray}
+
+\end{document}

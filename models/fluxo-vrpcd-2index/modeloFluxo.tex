@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=1.5cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\textbf{\textit{Commodities} devem passar pelo \emph{Cross-docking}} \\
+\textbf{Modelo de Fluxo em Redes - 1} \\
+\end{center}
+\vspace{0.4cm}
+\noindent Considere uma rede de distribuicao composta por um conjunto de fornecedores $F=\{1,2,..,N\}$ outro de consumidores $C=\{1',2',..,N'\}$, onde $|F|=|C|$, e um deposito (cross-docking). E dado tambem um conjunto $E$ de encomendas a serem distribuidas na rede, definido por uma funcao bijetiva $E:F \times C$ que associa cada elemento $f \in F$ a um unico $c \in C$. Cada encomenda $(f,c) \in E$ esta associada a um peso $P_{(f,c)}$ e um custo para sua carga/descarga no cross-docking $c_{(f,c)}$.
+
+\vspace{0.2cm}
+Para a distribuicao das mercadorias tem-se disponivel um conjunto de veiculos $K$ todos com capacidade $P$. O problema de otimizacao consiste em definir o esquema de alocacao e roteamento dos veiculos para realizar com o minimo custo a distribuicao das mercadorias, sendo que todas devem ser coletadas nos fornecedores e passar pelo Cross-docking, antes de serem entregues aos respectivos consumidores. No Cross-docking nao e possivel armazenar mercadorias, apenas troca-las de veiculos.
+
+\vspace{0.2cm}
+Utiliza-se um grafo $G=(V,A)$, onde $V = F \cup C \cup \{0,0'\}$, sendo $0$ o deposito de cross-docking e $0'$ uma copia artificial deste deposito. O conjunto $A=\{(i,j), \, i,j \in V\}$ e o custo para atravessar uma aresta $(i,j) \in A$ e dado por $c_{ij}$. Para a formulacao de fluxos define-se um conjunto de commodities $Q$, cuja cardinalidade e $K$, sendo que a oferta de cada commodity $q \in Q$ estara no intervalo de $[0,|F \cup C|+2]$ unidades, disponiveis no deposito. Todo vertice $i \in F \cup C$ apresenta demanda unitaria de uma commodity que podera ser satisfeita por qualquer $q \in Q$. Alem disto, o deposito artificial $0'$ apresenta demanda de 2 unidades de toda commodity $q \in Q$, 1 unidade vinda dos vertices Fornecedores, 1 unidade vinda dos Consumidores. Sao consideradas as variaveis de decisao:
+
+\vspace{0.8cm}
+\begin{table}[!htb]
+\begin{tabular}{rl}
+$f^q_{ij} = $ & Fluxo no arco $(i,j)$ correspondente a commodity $q$ \\
+$x^q_{ij} = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O arco } (i,j) \textrm{ e ativado no fluxo da commodity} q\\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+$y^q_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O vertice } i \textrm{ e ativado no fluxo da commodity } q \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+$u^q_{(f,c)} = $ &
+$\left\{
+\begin{array} {l}
+1 -\textrm{ A mesma commodity } q \textrm{ e utilizada para atender as demandas de } f \textrm{ e } c \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\newpage
+\begin{center}
+ $Min \,\, \sum\limits_{(i,j) \in A} {\sum \limits_{q \in Q} {c_{ij} x^{q}_{ij}}} + \sum\limits_{(f,c) \in E} {c_{(f,c)} (1 - \sum\limits_{q \in Q} {u^q_{(f,c)})}}$
+\end{center}
+
+\begin{eqnarray}
+\label{eq01}
+  \sum\limits_{f \in F} {f^q_{0f}} = \sum\limits_{f \in F} {y^q_f} + 1 & \hspace{1cm} & \forall q \in Q \\
+\label{eq02}
+  \sum\limits_{c \in C} {f^q_{0c}} = \sum\limits_{c \in C} {y^q_c} + 1 & \hspace{1cm} & \forall q \in Q \\
+\label{eq03}
+  \sum\limits_{j \in \Gamma^+_i} {f^q_{ij}} - \sum\limits_{h \in \Gamma^-_i}{f^q_{hi}} = -y^q_i & \hspace{1cm} & \forall i \in V - \{0,0'\}, \forall q \in Q \\
+\label{eq04}
+  \sum\limits_{q \in Q} {y^q_i} = 1 & \hspace{1cm} & \forall i \in V - \{0,0'\} \\
+\label{eq05}
+  f^q_{ij} \le |V| x^q_{ij} & \hspace{1cm} & \forall (i,j) \in A, \forall q \in Q \\
+\label{eq06}
+  \sum\limits_{j \in \Gamma^+_i}{x^q_{ij}} + \sum\limits_{h \in \Gamma^-_i}{x^q_{hi}} = 2y^q_i & \hspace{1cm} & \forall i \in V - \{0,0'\}, \forall q \in Q \\
+\label{eq07}
+  \sum\limits_{f \in F} {y^{q}_f P_{(f,c)}} \le P & \hspace{1cm} & \forall q \in Q \\
+\label{eq08}
+  \sum\limits_{c \in C} {y^{q}_c P_{(f,c)}} \le P & \hspace{1cm} & \forall q \in Q \\
+\label{eq09}
+  y^{q}_f + y^{q}_c \le u^q_{(f,c)} + 1 & \hspace{1cm} & \forall q \in Q, \forall (f,c) \in E \\
+\label{eq10}
+  y^{q}_f + y^{q}_c \ge 2u^q_{(f,c)} & \hspace{1cm} & \forall q \in Q, \forall (f,c) \in E 
+\end{eqnarray}
+
+\end{document}

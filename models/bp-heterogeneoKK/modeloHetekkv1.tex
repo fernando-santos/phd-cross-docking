@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.0cm,bottom=1.0cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\begin{table}[!htb]
+\begin{tabular}{rl}
+\vspace{1mm}
+$\lambda^k_r = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } r \textrm{ sera associada ao veculo } k \textrm{ no roteamento dos \underline{fornecedores}} \\
+0 - \textrm{ Caso contr\'ario}
+\end{array} \right.
+$
+\\
+\vspace{2mm}
+$\gamma^{k'}_{r'} = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } r \textrm{ sera associada ao ve\'iculo } k' \textrm{ no roteamento dos \underline{consumidores}} \\
+0 - \textrm{ Caso contr\'ario}
+\end{array} \right.
+$
+\\
+\vspace{1mm}
+$\tau^{kk'}_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A mercadoria } i \textrm{ \'e trocada entre os ve\'iculos } k \textrm{ e } k' \\
+0 - \textrm{ Caso contrario } 
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\vspace{1cm}
+\[
+Min \,\, \sum\limits_{r \in R} {c_r \sum\limits_{k \in K}{\lambda^k_r}} + \sum\limits_{r' \in R'} {c_{r'} \sum\limits_{k \in K}{\gamma^k_{r'}}} + \sum\limits_{p_i \in P} { \sum\limits_{k \in K} { \sum\limits_{k' \in K \setminus k} { c^{kk'}_i \tau^{kk'}_i } } }
+\]
+
+\begin{eqnarray}
+\label{eq01} \sum\limits_{r \in R} {\lambda^k_r} = 1   & \hspace{1cm} & \forall k \in K \\
+\label{eq02} \sum\limits_{r' \in R'} {\gamma^k_{r'}} = 1 & \hspace{1cm} & \forall k \in K \\
+\label{eq03} \sum\limits_{r \in R} {a_{ir} \sum\limits_{k \in K}{\lambda^k_r}} = 1 & \hspace{1cm} & \forall i \in F \\
+\label{eq04} \sum\limits_{r' \in R'} {b_{ir'} \sum\limits_{k \in K}{\gamma^k_{r'}}} = 1 & \hspace{1cm} & \forall i \in C \\
+\label{eq05} \sum\limits_{r \in R} {a_{ir} \lambda^k_r} + \sum\limits_{r' \in R'} {b_{ir'} \gamma^{k'}_{r'}} \le 1 + \tau^{kk'}_i &\hspace{1cm}& \forall p_i \in P,\forall k \in K,\forall k' \in K \\
+\label{eq06} \sum\limits_{k \in K} \sum\limits_{k' \in K} {\tau^{kk'}_i} = 1 & \hspace{1cm} & \forall p_i \in P \\
+\label{eq07} \sum\limits_{k \in K \setminus v} \sum\limits_{r \in R} {a_{ir} \lambda^k_r} +  \sum\limits_{k \in K \setminus v} \sum\limits_{r' \in R'} {b_{ir'} \gamma^k_{r'}} \le 2(1-\tau^{vv}_i) & \hspace{1cm} & \forall p_i \in P,\forall v \in K
+\end{eqnarray}
+
+\newpage
+\begin{center}
+\noindent FORMULACAO DUAL \\
+\end{center}
+\noindent Relaxando-se a integralidade das vari\'aveis de decis\~ao e considerando os subconjuntos $S \subset R$ e $S' \subset R'$, associa-se as seguintes vari\'aveis duais ao RMLP
+
+\begin{table}[!htb]
+\begin{center}
+\begin{tabular}{llll}
+$(1) \rightarrow \alpha \in \mathbb{R}^{|K|}$ & $(2) \rightarrow \beta \in \mathbb{R}^{|K'|}$ & $(3) \rightarrow \theta \in \mathbb{R}^{|F|}$ & $(4) \rightarrow \mu \in \mathbb{R}^{|C|}$\\
+ & & & \\
+$(5) \rightarrow \chi \in \mathbb{R}^{|F|\times|K|^2}_-$ & $(6) \rightarrow \phi \in \mathbb{R}^{|S|\times|K|}_- $ & $(7) \rightarrow \psi \in \mathbb{R}^{|S|}_-$ 
+\end{tabular}
+\end{center}
+\end{table}
+
+\noindent A formula\c{c}\~ao dual do RLMP \'e dada por:
+
+\[
+Max \,\, \sum\limits_{k \in K}{\alpha^k} + \sum\limits_{k \in K}{\beta^k} + \sum\limits_{i \in F}{\theta_i} + \sum\limits_{i \in C}{\mu_i} + \sum\limits_{p_i \in P} { \sum\limits_{k \in K} { \sum\limits_{k' \in K \setminus k} { \chi^{kk'}_i } } }
+\]
+
+\begin{small}
+\begin{eqnarray}
+\label{eqC01}
+  \alpha^k + \sum\limits_{i \in F}{a_{ir} \theta_i} + \sum\limits_{i \in F}{ \sum\limits_{k' \in K'} { a_{ir}\chi^{kk'}_i } } + \sum\limits_{r \in S}{\phi^k_r} + \sum\limits_{r \in S}{\psi_r} \le c_r & \hspace{5mm} & \forall r \in S, \forall k \in K \\
+\label{eqC02}
+  \beta^{k'} + \sum\limits_{i \in C}{b_{ir'} \mu_i} + \sum\limits_{i \in F}{ \sum\limits_{k \in K} { b_{ir'}\chi^{kk'}_i } } \le c_{r'} & \hspace{5mm} & \forall r' \in S', \forall k' \in K' \\
+\label{eqC03}  
+  -\chi^{kk'}_i \le c^{kk'}_i & \hspace{5mm} & \forall i \in F, \forall k \in K, \forall k' \in K \setminus k \\
+\label{eqC04}
+  \sum\limits_{k \in K}{\phi^k_r} + \psi_r \le 0 & \hspace{5mm} & \forall r \in S 
+\end{eqnarray}
+\end{small}
+
+\end{document}

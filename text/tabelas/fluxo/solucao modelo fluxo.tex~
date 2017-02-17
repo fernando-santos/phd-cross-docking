@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{geometry}
+  \geometry{letterpaper,left=0.5cm,right=1cm,top=2.0cm,bottom=1.5cm}
+
+\sloppy
+
+\begin{document}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{4-13}
+\multicolumn{3}{c}{} & \multicolumn{2}{|c}{custo $=0$} & \multicolumn{2}{|c|}{custo $=5$} & \multicolumn{2}{c|}{custo $=10$} & \multicolumn{2}{c|}{custo $=15$} & \multicolumn{2}{|c|}{custo $=20$}\\
+\cline{2-13}
+\multicolumn{1}{c}{} & \multicolumn{1}{|c}{instancia} & \multicolumn{1}{|c|}{var.} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} \\
+\hline
+\multirow{9}{*}{$|V|=20$}
+& \multirow{3}{*}{c101} & A & 392.4 & 3 & 404.3 & 2 & 414.3 & 2 & 420.1 & 0 & 420.1 & 0 \\
+\cline{3-13}
+& \multirow{3}{*}{} & B & 402.2 & 4 & 422.2 & 4 & 435.1 & 0 & 435.1 & 0 & 435.1 & 0 \\
+\cline{3-13}
+& \multirow{3}{*}{} & C & 393.0 & 7 & 395.9 & 0 & 395.9 & 0 & 395.9 & 0 & 395.9 & 0 \\
+\cline{2-13}
+& \multirow{3}{*}{r101} & A & 373.3 & 8 & 373.8 & 0 & 373.8 & 0 & 373.8 & 0 & 373.8 & 0 \\ 
+\cline{3-13}
+& \multirow{3}{*}{} & B & 339.1 & 5 & 356.1 & 2 & 366.1 & 2 & 367.3 & 0 & 367.3 & 0 \\ 
+\cline{3-13}
+& \multirow{3}{*}{} & C & 372.7 & 5 & 386.8 & 2 & 391.9 & 0 & 391.9 & 0 & 391.9 & 0 \\
+\cline{2-13}
+& \multirow{3}{*}{rc101} & A & 397.7 & 6 & 410.9 & 2 & 420.9 & 2 & 429.7 & 0 & 429.7 & 0 \\ 
+\cline{3-13}
+& \multirow{3}{*}{} & B & 419.8 & 5 & 441.5 & 4 & 444.7 & 0 & 444.7 & 0 & 444.7 & 0 \\ 
+\cline{3-13}
+& \multirow{3}{*}{} & C & 426.9 & 6 & 446.9 & 4 & 466.8 & 2 & 471.1 & 0 & 471.1 & 0 \\
+\hline
+\end{tabular}
+\caption{VRP-CD considerando $|F|=|C|=10$}
+\label{tab:different-dynamic-approaches}
+\end{table}
+
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{4-13}
+\multicolumn{3}{c}{} & \multicolumn{2}{|c}{custo $=0$} & \multicolumn{2}{|c|}{custo $=5$} & \multicolumn{2}{c|}{custo $=10$} & \multicolumn{2}{c|}{custo $=15$} & \multicolumn{2}{|c|}{custo $=20$}\\
+\cline{2-13}
+\multicolumn{1}{c}{} & \multicolumn{1}{|c}{instancia} & \multicolumn{1}{|c|}{var.} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} & \multicolumn{1}{|c|}{$F.O.$} & \multicolumn{1}{|c|}{troca} \\
+\hline
+\multirow{9}{*}{$|V|=30$}
+& \multirow{3}{*}{c101} & A & 410.5 & 3 & 417.7 & 0 & 417.7 & 0 & 417.7 & 0 & 417.7 & 0 \\
+\cline{3-13}
+& \multirow{3}{*}{} & B & 408.4 & 7 & 431.6 & 1 & 436.1 & 0 & 436.1 & 0 & 436.1 & 0 \\
+\cline{3-13}
+& \multirow{3}{*}{} & C & 418.7 & 7 & 437.1 & 2 & 447.1 & 2 & 454.9 & 0 & 454.9 & 0 \\
+\cline{2-13}
+& \multirow{3}{*}{r101} & A & 437.8 & 7 & 455.0 & 0 & 455.0 & 0 & 455.0 & 0 & 455.0 & 0 \\
+\cline{3-13}
+& \multirow{3}{*}{} & B & 444.7 & 13 & 450.8 & 0 & 450.8 & 0 & 450.8 & 0 & 450.8 & 0 \\
+\cline{3-13}
+& \multirow{3}{*}{} & C & 441.1 & 9 & 466.6 & 3 & 480.7 & 2 & 481.7 & 0 & 481.7 & 0 \\
+\cline{2-13}
+& \multirow{3}{*}{rc101} & A & 448.7 & 6 & 474.6 & 5 & 492.6 & 3 & 503.6 & 2 & 508.8 & 0 \\
+\cline{3-13}
+& \multirow{3}{*}{} & B & 492.2 & 8 & 526.7 & 6 & 550.3 & 2 & 555.7 & 0 & 555.7 & 0 \\
+\cline{3-13}
+& \multirow{3}{*}{} & C & 467.7 & 6 & 497.7 & 6 & 527.7 & 6 & 537.8 & 0 & 537.8 & 0 \\
+\hline
+\end{tabular}
+\caption{VRP-CD considerando $|F|=|C|=15$}
+\label{tab:different-dynamic-approaches}
+\end{table}
+
+
+\end{document} 

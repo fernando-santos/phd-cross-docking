@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{geometry}
+  \geometry{letterpaper,left=0.5cm,right=1cm,top=2.0cm,bottom=1.5cm}
+
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\begin{large}
+  \textbf{Tempos para alcan\c{c}ar o n\'o raiz na formulacao homog\^enea}
+\end{large}
+\end{center}
+
+\vspace{1cm}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c||c|c|c|c|}
+\cline{3-10}
+\multicolumn{2}{c}{} & \multicolumn{4}{|c||}{Homog\^eneo} & \multicolumn{4}{c|}{Heterog\^eneo} \\
+\hline
+instancia & \'otimo & LB & UB & GAP & tempo & LB & UB & GAP & tempo \\
+\hline
+20a & \textbf{3178.96} & 3170.52 & 3501.64 & 1.04\% & 92546s & 2989.36 & 3538.63 & 15.52\% & 18s \\
+20b & \textbf{3397.89} & 3397.89 & 3397.89 & 0.00\% & 7852s & 3185.54 & 3706.38 & 14.05\% & 13s\\
+20c & \textbf{3766.13} & 3724.37 & 3813.41 & 2.32\% & 59741s & 3568.15 & 4035.14 & 11.57\% & 22s\\
+20d & \textbf{3124.25} & 3105.55 & 3124.25 & 0.64\% & 67329s & 2936.78 & 3459.14 & 15.10\% & 15s\\
+20e & \textbf{3685.14} & 3685.14 & 3685.14 & 0.00\% & 8476s & 3508.51 & 3808.30 & 7.87\% & 24s\\
+\hline
+\end{tabular}
+\caption{Subproblema: Programa\c{c}\~ao Din\^amica}
+\end{table}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{2-11}
+\multicolumn{1}{c}{} & \multicolumn{2}{|c}{20a} & \multicolumn{2}{|c}{20b} & \multicolumn{2}{|c}{20c} & \multicolumn{2}{|c}{20d} & \multicolumn{2}{|c|}{20e}  \\
+\hline
+execu\c{c}\~ao & tempo & GAP & tempo & GAP & tempo & GAP & tempo & GAP & tempo & GAP \\
+\hline
+seed1 & 1729s & 1.0\% & 6935s & 0.0\% & 1616s & 5.0\% & 1511s & 22\% & 10091s & 0.0\% \\
+seed2 & 1652s & 12\% & 6667s & 0.0\% & 2461s & 4.7\% & 1130s & 19\% & 9464s & 0.0\% \\
+seed3 & 963s & 34\% & 6103s & 0.0\% & 1138s & 7.8\% & 987s & 4.8\% & 14164s & 0.0\% \\
+seed4 & 1109s & 6.6\% & 7088s & 0.0\% & 1861s & 4.2\% & 1026s & 17\% & 13856s & 0.0\% \\
+seed5 & 1832s & 38\% & 7065s & 0.0\% & 2169s & 8.1\% & 1325s & 11\% & 16474s & 0.0\% \\
+seed6 & 1048s & 40\% & 6627s & 0.00\% & 2192s & 2.4\% & 1405s & 5.2\% & 11932s & 0.0\% \\
+seed7 & 1853s & 1.9\% & 5085s & 0.0\% & 1984s & 2.1\% & 1569s & 33\% & 8210s & 0.0\% \\
+seed8 & 1127s & 34\% & 10259s & 0.0\% & 1504s & 3.2\% & 893s & 2.8\% & 11684s & 0.0\% \\
+seed9 & 1230s & 38\% & 6883s & 0.0\% & 2262s & 34\% & 1578s & 32\% & 7844s & 0.0\% \\
+\hline
+\hline
+media & 1393s & 22.8\% & 6968s & 0.0\% & 1909s & 7.9\% & 1269s & 16\% & 11524s & 0.0\% \\
+\hline
+\end{tabular}
+\caption{Subproblemas: Branch-and-cut}
+\end{table}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{2-11}
+\multicolumn{1}{c}{} & \multicolumn{2}{|c}{20a} & \multicolumn{2}{|c}{20b} & \multicolumn{2}{|c}{20c} & \multicolumn{2}{|c}{20d} & \multicolumn{2}{|c|}{20e}  \\
+\hline
+execu\c{c}\~ao & tempo & GAP & tempo & GAP & tempo & GAP & tempo & GAP & tempo & GAP \\
+\hline
+seed1 & 116s & 1.4\% & 911s & 0.0\% & 960s & 2.0\% & 134s & 0.90\% & 1657s & 0.0\% \\
+seed2 & 116s & 0.7\% & 845s & 0.0\% & 290s & 2.7\% & 112s & 2.8\% & 1885s & 0.0\% \\
+seed3 & 136s & 1.4\% & 1144s & 0.0\% & 273s & 1.7\% & 118s & 1.5\% & 2433s & 0.0\% \\
+seed4 & 191s & 1.7\% & 778s & 0.0\% & 261s & 2.4\% & 81s & 0.8\% & 788s & 0.0\% \\
+seed5 & 189s & 0.6\% & 335s & 0.0\% & 406s & 1.9\% & 196s & 2.5\% & 3068s & 0.0\% \\
+seed6 & 242s & 1.4\% & 1451s & 0.0\% & 532s & 2.4\% & 251s & 0.6\% & 2469s & 0.0\% \\
+seed7 & 261s & 1.4\% & 1614s & 0.0\% & 579s & 1.4\% & 331s & 2.1\% & 2172s & 0.0\% \\
+seed8 & 218s & 1.4\% & 1963s & 0.0\% & 394s & 1.9\% & 186s & 2.0\% & 2952s & 0.0\% \\
+seed9 & 121s & 0.6\% & 1715s & 0.0\% & 587s & 2.0\% & 135s & 2.1\% & 1551s & 0.0\% \\
+\hline
+\hline
+media & 176s & 1.2\% & 1195s & 0.0\% & 475s & 2.0\% & 171s & 1.7\% & 2108s & 0.0\% \\
+\hline
+\end{tabular}
+\caption{Subproblemas: Branch-and-cut + GRASP}
+\end{table}
+
+\begin{table}[!htb]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+instancia & PD & BC & BC+GRASP & redu\c{c}\~ao \\
+\hline
+20a & 92546s & 1393s & 176s & 525.8$\times$ \\
+20b & 7852s & 6968s & 1195s & 6.58$\times$ \\
+20c & 59741s & 1909s & 475s & 125.7$\times$ \\
+20d & 67329s & 1269s & 171s & 393.7$\times$ \\
+20e & 8476s & 11524s & 2108s & 4.1$\times$ \\
+\hline
+\end{tabular}
+\end{table}
+		
+
+\end{document}

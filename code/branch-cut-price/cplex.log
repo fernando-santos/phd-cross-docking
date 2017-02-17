@@ -1,0 +1,459 @@
+
+Log started (V12.1.0) Sat Dec 17 12:29:54 2011
+
+
+Problem 'abcd1.lp' read.
+Read time =    0.00 sec.
+Tried aggregator 1 time.
+LP Presolve eliminated 27 rows and 40 columns.
+Reduced LP has 9 rows, 16 columns, and 48 nonzeros.
+Presolve time =    0.00 sec.
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          2840.334190
+
+Dual simplex - Optimal:  Objective =  2.8703341904e+03
+Solution time =    0.00 sec.  Iterations = 5 (0)
+
+
+Variable Name           Solution Value
+lbd_0                         1.000000
+lbd_1                         1.000000
+lbd_2                         1.000000
+lbd_3                         1.000000
+gam_0                         1.000000
+gam_1                         1.000000
+gam_2                         1.000000
+gam_3                         1.000000
+tau_0_3                       1.000000
+tau_1_1                       1.000000
+tau_2_0                       1.000000
+tau_3_2                       1.000000
+All other variables in the range 1-56 are 0.
+Minimize
+ obj: 112.822685241699 lbd_0 + 151.264389038086 lbd_1 + 189.460250854492 lbd_2
+      + 153.627868652344 lbd_3 + 266.588562011719 gam_0
+      + 679.893188476562 gam_1 + 480.72119140625 gam_2 + 535.9560546875 gam_3
+      + 150 tau_0_0 + 120 tau_0_1 + 120 tau_0_2 + 90 tau_0_3 + 60 tau_1_0
+      + 90 tau_1_1 + 150 tau_1_2 + 120 tau_1_3 + 90 tau_2_0 + 120 tau_2_1
+      + 180 tau_2_2 + 90 tau_2_3 + 120 tau_3_0 + 150 tau_3_1 + 30 tau_3_2
+      + 120 tau_3_3 + id27 + 168.427749633789 lbd_4 + 180 tau_4_0 + 150 tau_4_1
+      + 150 tau_4_2 + 60 tau_4_3 + 168.427734375 lbd_5 + 180 tau_5_0
+      + 150 tau_5_1 + 150 tau_5_2 + 60 tau_5_3 + 555.263488769531 gam_4
+      + 180 tau_0_4 + 90 tau_1_4 + 120 tau_2_4 + 90 tau_3_4 + 30 tau_4_4
+      + 30 tau_5_4 + 555.263488769531 gam_5 + 180 tau_0_5 + 90 tau_1_5
+      + 120 tau_2_5 + 90 tau_3_5 + 30 tau_4_5 + 30 tau_5_5
+      + 566.469909667969 gam_6 + 210 tau_0_6 + 120 tau_1_6 + 150 tau_2_6
+      + 60 tau_3_6 + 60 tau_4_6 + 60 tau_5_6
+Subject To
+ rest1:     lbd_0 + lbd_1 + lbd_2 + lbd_3 + lbd_4 + lbd_5  = 4
+ rest2:     gam_0 + gam_1 + gam_2 + gam_3 + gam_4 + gam_5 + gam_6  = 4
+ rest3_i1:  lbd_1 + lbd_4 + lbd_5  = 1
+ rest3_i2:  lbd_1  = 1
+ rest3_i3:  lbd_3 + lbd_4 + lbd_5  = 1
+ rest3_i4:  lbd_2 + lbd_4 + lbd_5  = 1
+ rest3_i5:  lbd_3  = 1
+ rest3_i6:  lbd_2  = 1
+ rest3_i7:  lbd_0 + lbd_4 + lbd_5  = 1
+ rest3_i8:  lbd_0  = 1
+ rest3_i9:  lbd_0  = 1
+ rest3_i10: lbd_2  = 1
+ rest4_i1:  gam_1 + gam_4 + gam_5 + gam_6  = 1
+ rest4_i2:  gam_0  = 1
+ rest4_i3:  gam_2 + gam_4 + gam_5 + gam_6  = 1
+ rest4_i4:  gam_3 + gam_4 + gam_5 + gam_6  = 1
+ rest4_i5:  gam_2 + gam_6  = 1
+ rest4_i6:  gam_0  = 1
+ rest4_i7:  gam_3  = 1
+ rest4_i8:  gam_2  = 1
+ rest4_i9:  gam_1  = 1
+ rest4_i10: gam_1  = 1
+ rest5_0:   lbd_0 - tau_0_0 - tau_0_1 - tau_0_2 - tau_0_3 + tau_0_4 + tau_0_5
+            + tau_0_6  = 0
+ rest5_1:   lbd_1 - tau_1_0 - tau_1_1 - tau_1_2 - tau_1_3 + tau_1_4 + tau_1_5
+            + tau_1_6  = 0
+ rest5_2:   lbd_2 - tau_2_0 - tau_2_1 - tau_2_2 - tau_2_3 + tau_2_4 + tau_2_5
+            + tau_2_6  = 0
+ rest5_3:   lbd_3 - tau_3_0 - tau_3_1 - tau_3_2 - tau_3_3 + tau_3_4 + tau_3_5
+            + tau_3_6  = 0
+ rest6_0:   gam_0 - tau_0_0 - tau_1_0 - tau_2_0 - tau_3_0 + tau_4_0 + tau_5_0
+             = 0
+ rest6_1:   gam_1 - tau_0_1 - tau_1_1 - tau_2_1 - tau_3_1 + tau_4_1 + tau_5_1
+             = 0
+ rest6_2:   gam_2 - tau_0_2 - tau_1_2 - tau_2_2 - tau_3_2 + tau_4_2 + tau_5_2
+             = 0
+ rest6_3:   gam_3 - tau_0_3 - tau_1_3 - tau_2_3 - tau_3_3 + tau_4_3 + tau_5_3
+             = 0
+ rest7:     tau_0_0 + tau_0_1 + tau_0_2 + tau_0_3 + tau_1_0 + tau_1_1 + tau_1_2
+            + tau_1_3 + tau_2_0 + tau_2_1 + tau_2_2 + tau_2_3 + tau_3_0
+            + tau_3_1 + tau_3_2 + tau_3_3 + tau_4_0 + tau_4_1 + tau_4_2
+            + tau_4_3 + tau_5_0 + tau_5_1 + tau_5_2 + tau_5_3 + tau_0_4
+            + tau_1_4 + tau_2_4 + tau_3_4 + tau_4_4 + tau_5_4 + tau_0_5
+            + tau_1_5 + tau_2_5 + tau_3_5 + tau_4_5 + tau_5_5 + tau_0_6
+            + tau_1_6 + tau_2_6 + tau_3_6 + tau_4_6 + tau_5_6  = 4
+ rest5_4:   lbd_4 - tau_4_0 - tau_4_1 - tau_4_2 - tau_4_3 + tau_4_4 + tau_4_5
+            + tau_4_6  = 0
+ rest5_5:   lbd_5 - tau_5_0 - tau_5_1 - tau_5_2 - tau_5_3 + tau_5_4 + tau_5_5
+            + tau_5_6  = 0
+ rest6_4:   gam_4 - tau_0_4 - tau_1_4 - tau_2_4 - tau_3_4 - tau_4_4 - tau_5_4
+             = 0
+ rest6_5:   gam_5 - tau_0_5 - tau_1_5 - tau_2_5 - tau_3_5 - tau_4_5 - tau_5_5
+             = 0
+ rest6_6:   gam_6 - tau_0_6 - tau_1_6 - tau_2_6 - tau_3_6 - tau_4_6 - tau_5_6
+             = 0
+Bounds
+ 0 <= lbd_0 <= 1
+ 0 <= lbd_1 <= 1
+ 0 <= lbd_2 <= 1
+ 0 <= lbd_3 <= 1
+ 0 <= gam_0 <= 1
+ 0 <= gam_1 <= 1
+ 0 <= gam_2 <= 1
+ 0 <= gam_3 <= 1
+ 0 <= tau_0_0 <= 1
+ 0 <= tau_0_1 <= 1
+ 0 <= tau_0_2 <= 1
+ 0 <= tau_0_3 <= 1
+ 0 <= tau_1_0 <= 1
+ 0 <= tau_1_1 <= 1
+ 0 <= tau_1_2 <= 1
+ 0 <= tau_1_3 <= 1
+ 0 <= tau_2_0 <= 1
+ 0 <= tau_2_1 <= 1
+ 0 <= tau_2_2 <= 1
+ 0 <= tau_2_3 <= 1
+ 0 <= tau_3_0 <= 1
+ 0 <= tau_3_1 <= 1
+ 0 <= tau_3_2 <= 1
+ 0 <= tau_3_3 <= 1
+      id27 = 0
+ 0 <= lbd_4 <= 1
+ 0 <= tau_4_0 <= 1
+ 0 <= tau_4_1 <= 1
+ 0 <= tau_4_2 <= 1
+ 0 <= tau_4_3 <= 1
+ 0 <= lbd_5 <= 1
+ 0 <= tau_5_0 <= 1
+ 0 <= tau_5_1 <= 1
+ 0 <= tau_5_2 <= 1
+ 0 <= tau_5_3 <= 1
+ 0 <= gam_4 <= 1
+ 0 <= tau_0_4 <= 1
+ 0 <= tau_1_4 <= 1
+ 0 <= tau_2_4 <= 1
+ 0 <= tau_3_4 <= 1
+ 0 <= tau_4_4 <= 1
+ 0 <= tau_5_4 <= 1
+ 0 <= gam_5 <= 1
+ 0 <= tau_0_5 <= 1
+ 0 <= tau_1_5 <= 1
+ 0 <= tau_2_5 <= 1
+ 0 <= tau_3_5 <= 1
+ 0 <= tau_4_5 <= 1
+ 0 <= tau_5_5 <= 1
+ 0 <= gam_6 <= 1
+ 0 <= tau_0_6 <= 1
+ 0 <= tau_1_6 <= 1
+ 0 <= tau_2_6 <= 1
+ 0 <= tau_3_6 <= 1
+ 0 <= tau_4_6 <= 1
+ 0 <= tau_5_6 <= 1
+
+Log started (V12.1.0) Sat Dec 17 12:33:30 2011
+
+
+Problem 'abcd1.lp' read.
+Read time =    0.00 sec.
+Tried aggregator 1 time.
+LP Presolve eliminated 22 rows and 9 columns.
+Reduced LP has 9 rows, 16 columns, and 48 nonzeros.
+Presolve time =    0.00 sec.
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          2618.229805
+
+Dual simplex - Optimal:  Objective =  2.6482298050e+03
+Solution time =    0.00 sec.  Iterations = 5 (0)
+
+
+Variable Name           Solution Value
+lbd_0                         1.000000
+lbd_1                         1.000000
+lbd_2                         1.000000
+lbd_3                         1.000000
+gam_0                         1.000000
+gam_1                         1.000000
+gam_2                         1.000000
+gam_3                         1.000000
+tau_0_2                       1.000000
+tau_1_0                       1.000000
+tau_2_1                       1.000000
+tau_3_3                       1.000000
+All other variables in the range 1-25 are 0.
+Minimize
+ obj: 184.087448120117 lbd_0 + 163.659606933594 lbd_1 + 104.776245117188 lbd_2
+      + 106.684104919434 lbd_3 + 638.080444335938 gam_0
+      + 392.210998535156 gam_1 + 367.633544921875 gam_2
+      + 391.097412109375 gam_3 + 120 tau_0_0 + 120 tau_0_1 + 90 tau_0_2
+      + 150 tau_0_3 + 120 tau_1_0 + 180 tau_1_1 + 90 tau_1_2 + 90 tau_1_3
+      + 150 tau_2_0 + 30 tau_2_1 + 120 tau_2_2 + 120 tau_2_3 + 90 tau_3_0
+      + 150 tau_3_1 + 120 tau_3_2 + 60 tau_3_3 + id27
+Subject To
+ rest1:     lbd_0 + lbd_1 + lbd_2 + lbd_3  = 4
+ rest2:     gam_0 + gam_1 + gam_2 + gam_3  = 4
+ rest3_i1:  lbd_2  = 1
+ rest3_i2:  lbd_0  = 1
+ rest3_i3:  lbd_3  = 1
+ rest3_i4:  lbd_0  = 1
+ rest3_i5:  lbd_0  = 1
+ rest3_i6:  lbd_3  = 1
+ rest3_i7:  lbd_2  = 1
+ rest3_i8:  lbd_1  = 1
+ rest3_i9:  lbd_1  = 1
+ rest3_i10: lbd_1  = 1
+ rest4_i1:  gam_1  = 1
+ rest4_i2:  gam_1  = 1
+ rest4_i3:  gam_0  = 1
+ rest4_i4:  gam_0  = 1
+ rest4_i5:  gam_2  = 1
+ rest4_i6:  gam_3  = 1
+ rest4_i7:  gam_1  = 1
+ rest4_i8:  gam_2  = 1
+ rest4_i9:  gam_0  = 1
+ rest4_i10: gam_3  = 1
+ rest5_0:   lbd_0 - tau_0_0 - tau_0_1 - tau_0_2 - tau_0_3  = 0
+ rest5_1:   lbd_1 - tau_1_0 - tau_1_1 - tau_1_2 - tau_1_3  = 0
+ rest5_2:   lbd_2 - tau_2_0 - tau_2_1 - tau_2_2 - tau_2_3  = 0
+ rest5_3:   lbd_3 - tau_3_0 - tau_3_1 - tau_3_2 - tau_3_3  = 0
+ rest6_0:   gam_0 - tau_0_0 - tau_1_0 - tau_2_0 - tau_3_0  = 0
+ rest6_1:   gam_1 - tau_0_1 - tau_1_1 - tau_2_1 - tau_3_1  = 0
+ rest6_2:   gam_2 - tau_0_2 - tau_1_2 - tau_2_2 - tau_3_2  = 0
+ rest6_3:   gam_3 - tau_0_3 - tau_1_3 - tau_2_3 - tau_3_3  = 0
+ rest7:     tau_0_0 + tau_0_1 + tau_0_2 + tau_0_3 + tau_1_0 + tau_1_1 + tau_1_2
+            + tau_1_3 + tau_2_0 + tau_2_1 + tau_2_2 + tau_2_3 + tau_3_0
+            + tau_3_1 + tau_3_2 + tau_3_3  = 4
+Bounds
+ 0 <= lbd_0 <= 1
+ 0 <= lbd_1 <= 1
+ 0 <= lbd_2 <= 1
+ 0 <= lbd_3 <= 1
+ 0 <= gam_0 <= 1
+ 0 <= gam_1 <= 1
+ 0 <= gam_2 <= 1
+ 0 <= gam_3 <= 1
+ 0 <= tau_0_0 <= 1
+ 0 <= tau_0_1 <= 1
+ 0 <= tau_0_2 <= 1
+ 0 <= tau_0_3 <= 1
+ 0 <= tau_1_0 <= 1
+ 0 <= tau_1_1 <= 1
+ 0 <= tau_1_2 <= 1
+ 0 <= tau_1_3 <= 1
+ 0 <= tau_2_0 <= 1
+ 0 <= tau_2_1 <= 1
+ 0 <= tau_2_2 <= 1
+ 0 <= tau_2_3 <= 1
+ 0 <= tau_3_0 <= 1
+ 0 <= tau_3_1 <= 1
+ 0 <= tau_3_2 <= 1
+ 0 <= tau_3_3 <= 1
+      id27 = 0
+
+Log started (V12.1.0) Sat Dec 17 12:55:10 2011
+
+
+Problem 'abcd1.lp' read.
+Read time =    0.00 sec.
+Tried aggregator 1 time.
+LP Presolve eliminated 22 rows and 9 columns.
+Reduced LP has 9 rows, 16 columns, and 48 nonzeros.
+Presolve time =    0.00 sec.
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          2477.789886
+
+Dual simplex - Optimal:  Objective =  2.4927898865e+03
+Solution time =    0.00 sec.  Iterations = 6 (0)
+
+
+Variable Name           Solution Value
+lbd_0                         1.000000
+lbd_1                         1.000000
+lbd_2                         1.000000
+lbd_3                         1.000000
+gam_0                         1.000000
+gam_1                         1.000000
+gam_2                         1.000000
+gam_3                         1.000000
+tau_0_2                       1.000000
+tau_1_1                       1.000000
+tau_2_0                       1.000000
+tau_3_3                       1.000000
+All other variables in the range 1-25 are 0.
+
+Log started (V12.1.0) Sat Dec 17 23:54:50 2011
+
+
+Problem 'modeloA.lp' read.
+Read time =    0.00 sec.
+Tried aggregator 1 time.
+LP Presolve eliminated 32 rows and 19 columns.
+Reduced LP has 9 rows, 16 columns, and 48 nonzeros.
+Presolve time =    0.00 sec.
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          2420.180374
+
+Dual simplex - Optimal:  Objective =  2.4201803741e+03
+Solution time =    0.00 sec.  Iterations = 3 (0)
+
+
+Variable Name           Solution Value
+lbd_0                         1.000000
+lbd_1                         1.000000
+lbd_2                         1.000000
+lbd_3                         1.000000
+gam_0                         1.000000
+gam_1                         1.000000
+gam_2                         1.000000
+gam_3                         1.000000
+tau_1                         1.000000
+tau_3                         1.000000
+tau_6                         1.000000
+tau_7                         1.000000
+tau_8                         1.000000
+tau_10                        1.000000
+id38                        300.000000
+tau_0_1                       1.000000
+tau_1_2                       1.000000
+tau_2_0                       1.000000
+tau_3_3                       1.000000
+All other variables in the range 1-35 are 0.
+
+Log started (V12.1.0) Sat Dec 17 23:57:42 2011
+
+
+Problem 'modeloD.lp' read.
+Read time =    0.00 sec.
+Tried aggregator 1 time.
+LP Presolve eliminated 38 rows and 58 columns.
+Reduced LP has 9 rows, 16 columns, and 48 nonzeros.
+Presolve time =    0.00 sec.
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          2420.180374
+
+Dual simplex - Optimal:  Objective =  2.4201803741e+03
+Solution time =    0.00 sec.  Iterations = 3 (0)
+
+
+Variable Name           Solution Value
+lbd_0                         1.000000
+lbd_1                         1.000000
+lbd_2                         1.000000
+lbd_3                         1.000000
+gam_0                         1.000000
+gam_1                         1.000000
+gam_2                         1.000000
+gam_3                         1.000000
+tau_1                         1.000000
+tau_3                         1.000000
+tau_6                         1.000000
+tau_7                         1.000000
+tau_8                         1.000000
+tau_10                        1.000000
+id38                        300.000000
+tau_0_1                       1.000000
+tau_1_2                       1.000000
+tau_2_0                       1.000000
+tau_3_3                       1.000000
+All other variables in the range 1-74 are 0.
+
+Log started (V12.1.0) Sun Dec 18 00:16:36 2011
+
+
+Problem 'modeloA.lp' read.
+Read time =    0.00 sec.
+Tried aggregator 1 time.
+LP Presolve eliminated 32 rows and 19 columns.
+Reduced LP has 9 rows, 16 columns, and 48 nonzeros.
+Presolve time =    0.00 sec.
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          2592.970253
+
+Dual simplex - Optimal:  Objective =  2.5929702530e+03
+Solution time =    0.00 sec.  Iterations = 7 (0)
+
+
+Log started (V12.1.0) Sun Dec 18 00:16:54 2011
+
+
+Problem 'modeloD.lp' read.
+Read time =    0.01 sec.
+Tried aggregator 1 time.
+LP Presolve eliminated 5 rows and 19 columns.
+Reduced LP has 113 rows, 1877 columns, and 7233 nonzeros.
+Presolve time =    0.00 sec.
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =          1069.101433
+Iteration:    62   Dual objective     =          1732.407585
+Iteration:   124   Dual objective     =          1732.407585
+Iteration:   186   Dual objective     =          1732.407585
+Perturbation started.
+Iteration:   203   Dual objective     =          1732.407585
+Iteration:   265   Dual objective     =          1732.407654
+Iteration:   327   Dual objective     =          1889.281710
+Iteration:   389   Dual objective     =          2040.200458
+Iteration:   451   Dual objective     =          2412.970336
+Iteration:   513   Dual objective     =          2412.970351
+Iteration:   575   Dual objective     =          2556.452696
+Removing perturbation.
+
+Dual simplex - Optimal:  Objective =  2.5929702530e+03
+Solution time =    0.03 sec.  Iterations = 608 (0)
+
+
+Variable Name           Solution Value
+lbd_0                         1.000000
+lbd_1                         1.000000
+lbd_2                         1.000000
+lbd_3                         1.000000
+gam_0                         1.000000
+gam_1                         1.000000
+gam_2                         1.000000
+gam_3                         1.000000
+tau_2                         1.000000
+tau_6                         1.000000
+tau_8                         1.000000
+tau_10                        1.000000
+id38                        300.000000
+tau_0_2                       1.000000
+tau_1_3                       1.000000
+tau_2_0                       1.000000
+tau_3_1                       1.000000
+All other variables in the range 1-1896 are 0.
+
+Variable Name           Solution Value
+lbd_0                         1.000000
+lbd_1                         1.000000
+lbd_2                         1.000000
+lbd_3                         1.000000
+gam_0                         1.000000
+gam_1                         1.000000
+gam_2                         1.000000
+gam_3                         1.000000
+tau_2                         1.000000
+tau_3                         1.000000
+tau_4                         1.000000
+tau_10                        1.000000
+id38                        300.000000
+tau_0_2                       1.000000
+tau_1_3                       1.000000
+tau_2_1                       1.000000
+tau_3_0                       1.000000
+All other variables in the range 1-35 are 0.

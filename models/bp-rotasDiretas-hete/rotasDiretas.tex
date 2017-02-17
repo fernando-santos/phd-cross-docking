@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.0cm,bottom=1.0cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\textbf{Modelo de Rotas Diretas}
+\end{center}
+
+\vspace{5mm}
+
+\noindent Sejam os conjuntos de rotas que t\^em o Cross-Docking como ponto de partida e retorno e $k \in K$ um ve\'iculo da frota:
+\begin{itemize}
+  \item $R_f^k$: Conjunto de todas as rotas para visitar os v\'ertices fornecedores com o ve\'iculo $k$
+  \item $R_c^k$: Conjunto de todas as rotas para visitar os v\'ertices consumidores com o ve\'iculo $k$
+  \item $R_d^k$: Conjunto de todas as rotas diretas com o ve\'iculo $k$ (visita um conjunto n\~ao vazio de fornecedores e logo ap\'os um conjunto n\~ao vazio de consumidores)
+\end{itemize}
+
+
+\noindent E as seguintes vari\'aveis de decis\~ao:
+\begin{table}[!htb]
+\begin{tabular}{rl}
+\vspace{1mm}
+$\lambda^k_r = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } r \in R_f \textrm{ sera associada ao veculo } k \textrm{ no roteamento dos \underline{fornecedores}} \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+\vspace{2mm}
+$\gamma^k_r = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } r \in R_c \textrm{ sera associada ao veculo } k \textrm{ no roteamento dos \underline{consumidores}} \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+\vspace{2mm}
+$\delta^k_r = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } r \in R_d \textrm{ sera associada ao veculo } k \textrm{ no roteamento direto} \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+\vspace{1mm}
+$\tau^k_i = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ O veiculo } k \textrm{ carrega/descarrega a mercadoria } i \textrm{ no Cross-Docking}\\
+0 - \textrm{ Caso contrario } 
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\noindent Considere tamb\'em o par\^ametro $a^i_r$ que assume valor $1$ se o vertice $i$ \'e visitado pela rota $r$ e $0$ caso contr\'ario. O modelo de gera\c{c}\~ao de colunas para o VRPCD com rotas diretas \'e apresentado a seguir.
+
+\[
+Min \,\, \sum\limits_{k \in K}{ \sum\limits_{r \in R_f^k} {c_r^k \lambda^k_r}} + \sum\limits_{k \in K}{ \sum\limits_{r \in R_c^k} {c_r^k \gamma^k_r}} + \sum\limits_{k \in K}{ \sum\limits_{r \in R_d^k} {c_r^k \delta^k_r}} + \sum\limits_{k \in K} {\sum\limits_{p_i \in P} {c^k_i \tau^k_i}}
+\]
+
+\begin{eqnarray}
+\label{eqA01}
+  \sum\limits_{r \in R_f^k} {\lambda^k_r} + \sum\limits_{r \in R_d^k} {\delta^k_r} = 1  & \hspace{1cm} & \forall k \in K \\
+\label{eqA02}
+  \sum\limits_{r \in R_c^k} {\gamma^k_r} + \sum\limits_{r \in R_d^k} {\delta^k_r} = 1 & \hspace{1cm} & \forall k \in K \\
+\label{eqA03}
+  \sum\limits_{k \in K}{ \sum\limits_{r \in R_f^k} {a^i_r \lambda^k_r}} + \sum\limits_{k \in K}{ \sum\limits_{r \in R_d^k} {a^i_r \delta^k_r}} = 1 & \hspace{1cm} & \forall i \in F \\
+\label{eqA04}
+  \sum\limits_{k \in K}{ \sum\limits_{r \in R_c^k} {a^{i'}_r \gamma^k_r}} + \sum\limits_{k \in K}{ \sum\limits_{r \in R_d^k} {a^{i'}_r \delta^k_r}} = 1 & \hspace{1cm} & \forall i' \in C \\
+\label{eqA05}
+  \sum\limits_{r \in R_f^k} {\lambda^k_r a^i_r} - \sum\limits_{r \in R_c^k} {\gamma^k_r a^{i'}_r} + \tau^k_i \ge 0 & \hspace{1cm} & \forall p_i \in P, \forall k \in K \\
+\label{eqA06}
+  -\sum\limits_{r \in R_f^k} {\lambda^k_r a^i_r} + \sum\limits_{r \in R_c^k} {\gamma^k_r a^{i'}_r} + \tau^k_i \ge 0 & \hspace{1cm} & \forall p_i \in P, \forall k \in K \\
+\label{eqA07}
+  1 - \sum\limits_{r \in R_d^k} {\delta^k_r a^i_r} - \tau^k_i \ge 0 & \hspace{1cm} & \forall p_i \in P, \forall k \in K \\
+\label{eqA07}
+  \{\lambda^{|R_f||K|}, \gamma^{|R_c||K|}, \delta^{|R_d||K|}, \tau^{|K||P|}\} \in \mathbb{B}
+\end{eqnarray}
+
+
+\noindent Variaveis duais:\\
+
+\begin{tabular}{llll}
+$(1) \rightarrow \alpha \in \mathbb{R}^{|K|}$ & $(2) \rightarrow \beta \in \mathbb{R}^{|K|}$ & $(3) \rightarrow \theta \in \mathbb{R}^{|Q|}$ & $(4) \rightarrow \mu \in \mathbb{R}^{|Q|}$ \\
+ & & & \\
+$(5) \rightarrow \pi \in \mathbb{R}^{|K|\times|Q|}_+$ & $(6) \rightarrow \chi \in \mathbb{R}^{|K|\times|Q|}_+$ & $(7) \rightarrow \psi \in \mathbb{R}^{|K|\times|Q|}_+$ \\
+\end{tabular}
+
+\vspace{2cm}
+
+\noindent Formulacao Dual: \vspace{5mm}
+
+\[
+Max \,\, \sum\limits_{k \in K}{\alpha^k} + \sum\limits_{k \in K}{\beta^k} + \sum\limits_{q \in Q}{\theta_q} + \sum\limits_{q \in Q}{\mu_q}
+\]
+
+\begin{small}
+\begin{eqnarray}
+\label{eqC01}
+  \alpha^k + \sum\limits_{i \in F}{a^i_r \theta_i} + \sum\limits_{p_i \in P}{a^i_r \pi^k_q} - \sum\limits_{p_i \in P}{a^i_r \chi^k_q} \le c^k_r & \hspace{5mm} & \forall k \in K, \forall r \in R^k_f \\
+\label{eqC02}
+  \beta^k + \sum\limits_{i \in C}{a^i_r \mu_i} - \sum\limits_{p_i \in P}{a^i_r \pi^k_q} + \sum\limits_{p_i \in P}{a^i_r \chi^k_q} \le c^k_r & \hspace{5mm} & \forall k \in K, \forall r \in R^k_c \\
+\label{eqC03}  
+  \alpha^k + \beta^k + \sum\limits_{i \in F}{a^i_r \theta_i} + \sum\limits_{i \in C}{a^i_r \mu_i} - \sum\limits_{p_i \in P}{a^i_r \psi^k_i} \le c^k_r  & \hspace{5mm} & \forall k \in K, \forall r \in R^k_d \\
+\label{eqC04}
+  \pi^k_i + \chi^k_i - \psi^k_i \le c^k_i & \hspace{5mm} & \forall k \in K, \forall p_i \in P \\
+\label{eqC05}
+  \alpha^k, \beta^k, \theta_i, \mu_i \in \mathbb{R}  \\
+\label{eqC06}
+  \pi^k_i, \chi^k_i, \psi^k_i \in \mathbb{R}_+
+\end{eqnarray}
+\end{small}
+
+\end{document}

@@ -1,0 +1,30 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{geometry}
+  \geometry{letterpaper,left=0.5cm,right=1cm,top=2.0cm,bottom=1.5cm}
+\sloppy
+
+\begin{document}
+
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\cline{3-10}
+\multicolumn{2}{c}{} & \multicolumn{3}{|c}{Relaxa\c{c}\~ao linear} & \multicolumn{3}{|c|}{Bound de Lasdon ($0.5\%$)} & \multicolumn{2}{c|}{CPLEX Fluxo $|K|$} \\
+\hline
+instancia & \'Otimo & Fluxo $|K|$ & Fluxo $|V|$ & GC & LB do BC & \'otimo do BC & Sem Lasdon & 1 thread & 4 threads \\
+\hline
+MW20a & 3178.95 & 968.50 & 1602.02 & 3170.51 & 3173.43 & 3170.97 & 3173.30 & 2723.79 &  2750.94 \\ 
+MW20b & 3397.89 & 829.41 & 1571.26 & 3397.89$^*$ & 3397.89$^*$ & 3397.89$^*$ & 3397.89$^*$ & 2711.25 & 2724.83\\
+MW20c & 3766.13 & 896.62 & 1580.82 & 3724.37 & 3726.76 & 3727.25 & 3727.50 & 2776.33 & 2886.33 \\
+MW20d & 3124.25 & 836.43 & 1562.29 & 3105.55 & 3112.86 & 3110.06 & 3110.06 & 2725.73 & 2749.15 \\
+MW20e & 3685.14 & 904.01 & 1719.54 & 3685.14$^*$ & 3685.14$^*$ & 3685.14$^*$ & 3685.14$^*$ & 2831.14 & 2942.05 \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}

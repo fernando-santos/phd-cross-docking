@@ -1,0 +1,54 @@
+\begin{thebibliography}{10}
+
+\bibitem{apte00}
+{\sc M.~U. Apte and S.~Viswanathan}, {\em Effective cross docking for improving
+  distribution efficiencies}, International Journal of Logistics: Research and
+  Applications, 3 (2000), pp.~291--302.
+
+\bibitem{bartholdi04}
+{\sc J.~J. Bartholdi and K.~R. Gue}, {\em The best shape for a crossdock},
+  Transportation Science, 38 (2004), pp.~235--244.
+
+\bibitem{oliveira02}
+{\sc P.~F. de~Oliveira and N.~D. Pizzolato}, {\em Eficiência da distribuição
+  através da prática do cross docking}, in ENEGEP - Encontro Nacional de
+  Engenharia de Produção, 2002.
+
+\bibitem{forger95}
+{\sc G.~Forger}, {\em Ups starts world's premiere cross-docking operation},
+  Modern Materials Handling,  (1995), pp.~36--38.
+
+\bibitem{fraga07}
+{\sc M.~Fraga}, {\em Uma metodologia híbrida: Colônia de formigas ? busca tabu
+  ? reconexão por caminhos para resolução do problema de roteamento de veículos
+  com janela de tempo}, Master's thesis, CEFET--MG, Dissertação de mestrado
+  2007.
+
+\bibitem{gue01}
+{\sc K.~R. Gue}, {\em Cross-docking: Just-in-time for distribution}.
+\newblock Teaching Notes-Naval Postgraduate School -- Monterey, CA, May 2001.
+
+\bibitem{king97}
+{\sc G.~King and C.~Mast}, {\em Excess travel: Causes, extent and
+  consequences}, Transportation Research Record,  (1997), pp.~126--134.
+
+\bibitem{vrpcd06}
+{\sc Y.~H. Lee, J.~W. Jung, and K.~M. Lee}, {\em Vehicle routing scheduling for
+  cross-docking in the supply chain}, Computers and Industrial Engineering, 51
+  (2006), pp.~247--256.
+
+\bibitem{wen08}
+{\sc M.~Wen, J.~Larsen, J.~Clausen, J.-F. Cordeau, and G.~Laporte}, {\em
+  Vehicle routing with cross-docking}, Journal of Operational Research Society,
+   (2008).
+
+\bibitem{witt98}
+{\sc C.~E. Witt}, {\em Crossdocking: Concepts demand choice}, Material Handling
+  Engineering, 53 (1998), pp.~44--49.
+
+\bibitem{yu08}
+{\sc W.~Yu and P.~J. Egbelu}, {\em Scheduling of inbound and outbound trucks in
+  cross docking systems with temporary storage}, European Journal of
+  Operational Research, 184 (2008), pp.~377--396.
+
+\end{thebibliography}

@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{color}
+\geometry{letterpaper,left=3cm,right=3cm,top=2cm,bottom=2cm}
+\sloppy
+
+\begin{document}
+
+\vspace{1cm}
+
+\begin{center}
+\textbf{Cover Letter}
+\end{center}
+
+\noindent Paper: \emph{A novel column generation algorithm for the Vehicle Routing Problem with Cross-Docking}
+
+\vspace{1cm}
+
+The column generation subproblem described in the paper is not the Elementary Shortest Path Problem with Resource Constraints (ESPPRC). According to the first paragraph of the section 3, our subproblem is a slight variant of the ESPPRC due to changing costs incurred when a route (elementary path) visits a customer $i'$ without visiting the respective supplier $i$ of a given request $p_i \in P$. For this reason, the most common relaxation algorithm for the ESPPRC, the Shortest Path Problem with Resource constraints (SPPRC)[1], could not be used. In fact, the dynamic programming algorithm (DP) demands specific dominance rules to solve our subproblem and we do not know efficient algorithms to solve neither it or its relaxation. We ommited DP results in the paper because Branch-and-cut and GRASP algorithms outperformed the DP for all instances of our test set.
+
+\vspace{1cm}
+
+Concerning the results on table 2, the column $t_w$ shows the time that each branch-and-price algorithm spends to evaluate its linear relaxation value $w_{CG}$. Although the proposed algorithm (NBP) spends more time to achieve $w_{CG}$ than the previous algorithm (PBP), the value $w_{CG}$ is stronger for all instances using NBP, allowing it to achieve better lower and upper bounds for the most of instances within the time limit (columns BLB and BUB, respectively). Moreover, for those instances with $15$ requests ($30$ vertices) the NBP achieves the optimal solution for all $5$ instances, while only $2$ instances were solved using the PBP. Concerning instances with $20$ requests ($40$ vertices) the NBP solved $2$ instances and kept an average gap of $0.56\%$ for the others, while PBP did not achieve optimal solutions and kept an average gap of $4.28\%$. In fact, the NBP evaluates fewer nodes in the BP tree because it spends the most of the time evaluating the linear relaxation of its nodes, however, the quality of the lower bound is worth the time and for this reason the NBP outperforms the PBP concerning the overall performance.
+
+\vspace{1cm}
+
+\noindent[1] M. Desrochers (1988).\newblock An algorithm for the shortest path problem with resource constraints. \newblock {\em Technical Report G-88-27}, GERAD.
+
+\end{document}

@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{letterpaper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=1.5cm}
+\usepackage{graphicx}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+\textbf{\textit{Commodities} devem passar pelo \emph{Cross-docking}} \\
+\textbf{Modelo de Fluxo em Redes - 2} \\
+\end{center}
+\vspace{0.4cm}
+\noindent Considere uma rede de distribuicao composta por um conjunto de fornecedores $F=\{1,2,..,N\}$, um de consumidores $C=\{1',2',..,N'\}$, onde $|F|=|C|$, e um deposito (cross-docking). E definido tambem um conjunto $E$ de encomendas a serem distribuidas na rede, definido por uma funcao bijetiva $E:F \times C$ que associa cada elemento $f \in F$ a um unico $c \in C$. Cada encomenda $(f,c) \in E$ esta associada a um peso $P_{(f,c)}$ e um custo para sua carga/descarga no cross-docking $c_{(f,c)}$.
+
+\vspace{0.2cm}
+Para a distribuicao das mercadorias tem-se disponivel um conjunto de veiculos $K$ todos com capacidade $P$. O problema de otimizacao consiste em definir o esquema de alocacao e roteamento dos veiculos para realizar com o minimo custo a distribuicao das mercadorias, sendo que todas devem ser coletadas nos fornecedores e passar pelo Cross-docking, antes de serem entregues aos respectivos consumidores. No Cross-docking nao e possivel armazenar mercadorias, apenas troca-las de veiculos.
+
+\vspace{0.2cm}
+Utiliza-se um grafo $G=(V,A)$, onde $V = F \cup C \cup \{0,0'\}$, sendo $0$ o deposito de cross-docking e $0'$ uma copia artificial deste deposito. O conjunto $A=\{(i,j), \, i,j \in V\}$ e o custo para atravessar uma aresta $(i,j) \in A$ \'e dado por $c_{ij}$. Para a formula\c{c}\~ao de fluxos sao definidos um conjunto de commodities $Q$ e uma funcao bijetora $g: Q \rightarrow \{F \cup C \}$ que associa a cada vertice uma unica commodity. O deposito oferta 2 unidades de cada commodity $q \in Q$, sendo que tanto o vertice $g(q) \in \{F \cup C \}$ quanto o deposito artificial apresentam demanda de 1 unidade de $q$. O fluxo das commodities pode seguir por diferentes rotas para atender as demandas, sendo que o total de rotas na solucao do problema deve ser $K$. As variaveis de decisao sao dadas por:
+
+\vspace{0.8cm}
+\begin{table}[!htb]
+\begin{tabular}{rl}
+$f^{qk}_{ij} = $ & Fluxo da commodity $q$ no arco $(i,j)$ associada a rota $k$\\
+$x^k_{ij} = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } k \textrm{ esta associada ao arco } (i,j) \textrm{, utilizado para o fluxo das commodities}\\
+1 - \textrm{ O arco } (i,j) \textrm{ e ativado na rota } k \textrm{ para o fluxo das commodities}\\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+$y^{qk} = $ &
+$\left\{
+\begin{array} {l}
+1 - \textrm{ A rota } k \textrm{ esta associada ao fluxo da commodity } q \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\\
+$u^k_{(f,c)} = $ &
+$\left\{
+\begin{array} {l}
+1 -\textrm{ As demandas de } f \in F\textrm{ e } c \in C \, | \, (f,c) \in E \textrm{ sao atendidas pela mesma rota } k \\
+0 - \textrm{ Caso contrario}
+\end{array} \right.
+$
+\end{tabular}
+\end{table}
+
+\newpage
+\begin{center}
+ $Min \,\, \sum\limits_{k=1}^K {\sum\limits_{(i,j) \in A} {{c_{ij} x^k_{ij}}}} + \sum\limits_{(f,c) \in E} {c_{(f,c)} (1 - \sum\limits_{k=1}^K {u^k_{(f,c)})}}$
+\end{center}
+
+\begin{eqnarray}
+\label{eq01}
+  \sum\limits_{f \in F} {f^{qk}_{0f}} = 2 y^{qk} & \hspace{1cm} & \forall q \in Q, \forall k = \{1,..,K\} \\
+\label{eq02}
+  \sum\limits_{c \in C} {f^{qk}_{0c}} = 2 y^{qk} & \hspace{1cm} & \forall q \in Q, \forall k = \{1,..,K\} \\
+\label{eq03}
+  \sum\limits_{j \in \Gamma^+_i} {f^q_{ij}} - \sum\limits_{h \in \Gamma^-_i}{f^q_{hi}} = \left\{
+\begin{array} {l}
+-y^{qk} \textrm{, se } i = g(q)\\
+0 \,\,\,\, \,\,\,\,\,\textrm{, c. c.}
+\end{array} \right.
+& \hspace{1cm} & \forall i \in \{F \cup C\}, \forall q \in Q, \forall k\\
+\label{eq04}
+  \sum\limits_{k=1}^K {y^{qk}} = 1 & \hspace{1cm} & \forall q \in Q \\
+\label{eq05}
+  \sum\limits_{f \in F} {x^k_{0f}} = 1 & \hspace{1cm} & \forall k = \{1,..,K\} \\
+\label{eq06}
+  \sum\limits_{c \in C} {x^k_{0c}} = 1 & \hspace{1cm} & \forall k = \{1,..,K\} \\
+\label{eq07}
+  \sum\limits_{q \in Q} {f^{qk}_{ij}} \le |V| x^k_{ij} & \hspace{1cm} & \forall (i,j) \in A, \forall k = \{1,..,K\} \\
+\label{eq08}
+  \sum\limits_{k=1}^K {\sum\limits_{j \in \Gamma^+_i}{x^k_{ij}}} + \sum\limits_{k=1}^K {\sum\limits_{h \in \Gamma^-_i}{x_{hi}}} = 2 & \hspace{1cm} & \forall i \in V - \{0,0'\} \\
+\label{eq09}
+  \sum\limits_{q \in Q} {y^{qk} P_{(g(q),c)}} \le P & \hspace{1cm} & \forall k = \{1,..,K\} \\
+\label{eq10}
+  \sum\limits_{q \in Q} {y^{qk} P_{(f,g(q))}} \le P & \hspace{1cm} & \forall k = \{1,..,K\} \\
+\label{eq11}
+  y^{fk} + y^{ck} \le u_{(f,c)} + 1 & \hspace{1cm} & \forall k = \{1,..,K\}, \forall (f,c) \in E \\
+\label{eq12}
+  y^{fk} + y^{ck} \ge 2u_{(f,c)} & \hspace{1cm} & \forall k = \{1,..,K\}, \forall (f,c) \in E 
+\end{eqnarray}
+
+\end{document}

@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{geometry}
+  \geometry{letterpaper,left=0.5cm,right=1cm,top=2.0cm,bottom=1.5cm}
+
+\sloppy
+
+\begin{document}
+
+\begin{table}[!htb]
+\centering
+\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\cline{3-10}
+\multicolumn{2}{c}{} & \multicolumn{2}{|c}{$k=2$} & \multicolumn{2}{|c|}{$k=3$} & \multicolumn{2}{c|}{$k=4$} & \multicolumn{2}{c|}{$k=|V|$}\\
+\cline{2-10}
+\multicolumn{1}{c}{} & \multicolumn{1}{|c|}{$|V|$} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} \\
+\hline
+\multirow{5}{*}{c101} & \textbf{20} & 0.03 & 0.4 & 0.76 & 0.74 & 5.63 & 4.82 & 3.25 & 3.71 \\
+\cline{2-10}
+ & \textbf{40} & 0.29 & 13.47 & 9.98 & 19.87 & 95.91 & 69.37 & - & - \\
+\cline{2-10}
+& \textbf{60} & 1.68 & 93.41 & 100.5 & 156.4 & 794.3 & 568.1 & - & - \\
+\cline{2-10}
+& \textbf{80} & 4.94 & 305.9 & 410.2 & 531.3 & 2077 & 1352 & - & - \\
+\cline{2-10}
+& \textbf{100} & 21.45 & 1114 & 1862 & 2134 & 1286 & 990.1 & - & - \\ 
+\hline
+\end{tabular}
+\caption{Instancia \emph{Clustered} (c101)}
+\end{table}
+
+\vspace{1cm}
+
+\begin{table}[!htb]
+\centering
+\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\cline{3-10}
+\multicolumn{2}{c}{} & \multicolumn{2}{|c}{$k=2$} & \multicolumn{2}{|c|}{$k=3$} & \multicolumn{2}{c|}{$k=4$} & \multicolumn{2}{c|}{$k=|V|$}\\
+\cline{2-10}
+\multicolumn{1}{c}{} & \multicolumn{1}{|c|}{$|V|$} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} \\
+\hline
+\multirow{5}{*}{c101} & \textbf{20} & 0.01 & 0.51 & 0.21 & 0.84 & 1.37 & 2.52 & 0.05 & 0.18 \\
+\cline{2-10}
+ & \textbf{40} & 2.81 & 162.3 & 10.22 & 501.2 & 124.2 & 164.1 & 96.72 & 95.06 \\
+\cline{2-10}
+& \textbf{60} & 16.81 & 1161 & 58.53 & 1364 & 868.2 & 1227 & - & - \\
+\cline{2-10}
+& \textbf{80} & 78.98 &  & 83.16 &  & 204.3 &  & - &  - \\
+\cline{2-10}
+& \textbf{100} & 320.6 &  & 940.8 &  &  &  &  &  \\
+\hline
+\end{tabular}
+\caption{Instancia \emph{Clustered} (c101) - Algoritmo versao 2}
+\end{table}
+
+\vspace{1cm}
+
+\begin{table}[!htb]
+\centering
+\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\cline{3-10}
+\multicolumn{2}{c}{} & \multicolumn{2}{|c}{$k=2$} & \multicolumn{2}{|c|}{$k=3$} & \multicolumn{2}{c|}{$k=4$} & \multicolumn{2}{c|}{$k=|V|$}\\
+\cline{2-10}
+\multicolumn{1}{c}{} & \multicolumn{1}{|c|}{$|V|$} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} & \multicolumn{1}{|c|}{P. Ext.} & \multicolumn{1}{|c|}{P. Int.} \\
+\hline
+\multirow{5}{*}{rc101} & \textbf{20} & 0.06 &  & 5.28 &  & 91.56 &  & 0.11 & \\
+\cline{2-10}
+ & \textbf{40} & 2.09 & 283.4 & 18.55 & 257.3 & 292.2 & 315.4 & ?? & ?? \\
+\cline{2-10}
+& \textbf{60} & 18.15 & >1000 & 151.5 & >1000 & 2072 & >1000 & >1000 & >1000 \\
+\cline{2-10}
+& \textbf{80} &  &  &  &  &  &  &  & \\
+\cline{2-10}
+& \textbf{100} &  &  &  &  &  &  &  & \\ 
+\hline
+\end{tabular}
+\caption{Instancia \emph{Random} (r101)}
+\end{table}
+
+
+\end{document} 
